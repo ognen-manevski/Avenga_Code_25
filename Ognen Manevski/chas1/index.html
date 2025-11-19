@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<body>
+
+<form id="converter-form">
+    <label for="den">Denar</label>
+    <input type="number" id="den" step="any">
+    <br><br>
+    <label for="eur">Eur</label>
+    <input type="number" id="eur" step="any">
+    <br><br>
+    <input type="submit" value="Convert">
+</form>
+
+<script>
+const conversion = 61.5;
+
+document.querySelector("#converter-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent form reload
+
+    const inputDenar = parseFloat(document.querySelector("#den").value);
+    const inputEur = parseFloat(document.querySelector("#eur").value);
+
+    if (!isNaN(inputDenar) && inputDenar > 0) {
+        const eur = inputDenar / conversion;
+        document.querySelector("#eur").value = eur.toFixed(2);
+        console.log(`${inputDenar} Denar = ${eur.toFixed(2)} EUR`);
+    } 
+    else if (!isNaN(inputEur) && inputEur > 0) {
+        const denar = inputEur * conversion;
+        document.querySelector("#den").value = denar.toFixed(2);
+        console.log(`${inputEur} EUR = ${denar.toFixed(2)} Denar`);
+    } 
+    else {
+        alert("Please enter a value in either field.");
+    }
+});
+</script>
+
+</body>
+</html>

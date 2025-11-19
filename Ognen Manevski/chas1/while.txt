@@ -1,0 +1,19 @@
+//brojach        //expression       //incr./decrement
+for conter=0; counter <= 10; counter = counter+1;
+    //code
+    //code
+    //code
+end-for
+
+
+///
+
+
+counter = 0;
+
+while (counter<=10)
+    //code
+    //code
+    counter = conter + 1;
+end-while
+

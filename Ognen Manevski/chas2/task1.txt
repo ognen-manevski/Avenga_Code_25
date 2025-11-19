@@ -1,0 +1,133 @@
+input_mile = mile;
+input_km = km;
+
+
+// 1 mile = 1.60934 km;
+// 1 km = 0.621371 mile;
+
+
+if (mile) {
+    km = mile * 1.60934
+    print km
+} else {
+    mile = km * 0.621371
+    print mile
+}
+
+//// od prof
+
+const miles = 1.6;
+const km = 0.6;
+
+print "What kid of conversion do you need?"
+print "Enter 1 for km to miles, enter 2 for miles to km"
+
+choise = input();
+
+
+if choise = "1"
+    value = input();
+    calculation = value*miles;
+    print calculation;
+
+else if chose ="2"
+    value = input();
+    calculation = value*km;
+    print calculation;
+
+else
+    then error;
+
+
+
+
+///// task 2
+
+input 1 = i1
+input 2 = i2
+input 3 = i3
+
+avg = i1+i2+13/3
+
+// prof
+//f1
+
+num = input();
+num1 = input();
+num2 = input();
+
+result = (num + num1 + num2) / 3;
+print result;
+
+//f2
+
+const maxCounter = 3;
+suma = 0;
+
+for counter = 0; counter < maxCounter; counter = counter + 1 do
+    number = input();
+    suma = suma + number;
+end
+
+avg = suma/maxCounter;
+print average;
+
+
+// task 3
+
+var names = [name1, name2, name3 ... nameN];
+
+name = input();
+found = false;
+
+for i=0; i<names.length; i++{
+
+    if names[i] === name {
+        found = true;
+        print names[i]
+        break;
+    }   
+}
+
+if found = false{
+    print "No Student by that name."
+}
+
+
+// prof
+
+
+students = [bob, jill, sparky];
+
+print "Enter the name of the student to search for";
+studentName = input();
+
+found = false;
+
+for i=0;i<students.length; i++ {
+    if students[i] = studentName;
+        found = true;
+        print Student found: + students[i];
+        break;
+    end
+}
+
+if found==false{
+    print Student not found;
+}
+
+
+/// task 4
+
+coins = [1, 5, 10, 20, 50];
+
+amount = input();
+
+numberOfCoins = 0;
+
+for i=coins.length-1; i>=0; i-- {
+    numberOfCoins = amount/coins[i];  //375 => 7 (50$)
+    amount = amount % coins[i];
+}
+
+print "coins needed: numberOfCoins"

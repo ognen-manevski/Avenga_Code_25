@@ -1,0 +1,42 @@
+day = 1 => number of day in the week
+
+switch day 
+    case 1: code// print "Monday" //code break;
+    case 2: code// print "Tuesday" //code break;
+    case 3: code// print "Wednesday" //code break;
+    case 4: code// print "Thursday" //code break;
+    case 5: code// print "Friday" //code break;
+    case 6: code// print "Sat" //code break;
+    case 7: code// print "Sun" //code break;
+    
+default: print "Not Valid Day" break; => se izvrshuva vo sluchaj nieden case da ne e validen
+
+
+
+////////////
+
+
+
+day = 1 => number of day in the week
+
+switch day 
+    case 1: 
+    case 2: 
+    case 3: 
+    case 4:
+    case 5: 
+        print "Workday";
+        break;
+
+    case 6:
+    case 7: 
+        print "Weekend";
+        break;
+    
+default: print "Not Valid Day" break; => se izvrshuva vo sluchaj nieden case da ne e validen
+
+
+///
+
+
+

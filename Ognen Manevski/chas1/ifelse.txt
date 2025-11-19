@@ -1,0 +1,10 @@
+conversionCurrency = euro
+
+if expression (conversionCurrency = euro) => true
+    then => code here will be executed
+
+else if expression (conversionCurrency = denar) => true
+    then => code here will be executed
+
+else
+    then => code here will be executed
