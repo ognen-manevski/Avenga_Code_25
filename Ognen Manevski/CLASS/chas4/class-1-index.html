@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .custom-list {
+            list-style-type: "✦ ";
+        }
+
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::after {
+            content: attr(data-tip);
+            position: absolute;
+            left: 0;
+            bottom: 100%;
+            background: #333;
+            color: #fff;
+            padding: 6px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            font-size: 0.8em;
+            opacity: 0;
+            transform: translateY(-4px);
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <ol type="1" start="15">
+        <li>First</li>
+        <li>Second</li>
+        <li>
+            <ul class="custom-list">
+                <li>list item 1</li>
+                <li>list item 2</li>
+                <li>list item 3</li>
+            </ul>
+        </li>
+    </ol>
+
+
+    <!-- quotations  -->
+    <p>Lorem ipsum Lorem ipsum dolor sit amet consectetur.
+    <blockquote style="background-color: bisque;">Lorem ipsum dolor sit amet consectetur.</blockquote>dolor Lorem ipsum
+    <blockquote cite="https://www.google.com" style="background-color: aqua;">
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </blockquote>
+    dolor sit amet.sit.</p>
+
+    <p>
+        Lorem, ipsum.
+        <q><b>Lorem ipsum dolor sit amet consectetur adipisicing.</b></q>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore iure repellat, officiis doloribus obcaecati,
+        natus minus iusto adipisci, animi aperiam nostrum? Facere nam commodi earum, suscipit non aut magni modi.
+    </p>
+
+    <abbr title="title :P">
+        <p style="background-color: aquamarine; padding: 3px;">Lorem ipsum dolor sit amet.</p>
+    </abbr>
+
+    <abbr class="tooltip" data-tip="Hypertext Markup Language">HTML</abbr> <br>
+
+    <small>small</small> <br>
+
+    <ins>Inserted</ins> <br>
+    <del>deleted</del>
+
+
+    <p>&lt &gt</p>
+
+    <code style="background-color: #333; color: white; padding: 1rem;">
+        dsadasda
+    </code>
+
+    
+
+
+
+
+</body>
+
+</html>
