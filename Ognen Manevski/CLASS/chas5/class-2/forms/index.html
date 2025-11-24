@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    legend{
+        text-align: center;
+        width: max-content;
+    }
+</style>
+
+<body>
+
+    <form action="test.php" method="POST">
+
+        <fieldset style="width:min-content; padding: 1rem;">
+            <legend>Your Info</legend>
+
+            <label for="username">Username:</label><br>
+            <input type="text" name="username" id="username" placeholder="Your Username Here"><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="password" placeholder="Your Password Here"><br>
+
+            <!-- show / hide password control -->
+            <label style="display:inline-block; margin-top:6px;">
+                <input type="checkbox" id="togglePassword" aria-controls="password"> Show password
+            </label>
+
+        </fieldset><br><br>
+
+        <label for="comments">Comments:</label><br>
+        <textarea name="comments" id="comments" cols="26" rows="5">Write your comments here...
+        </textarea><br><br>
+
+        <input type="search" name="search" id="search" placeholder="search..."><br><br>
+
+        <hr>
+
+        <label for="phone">Telephone:</label><br>
+        <input type="text" name="phone" id="phone" placeholder="+389 02 467 235"><br><br>
+
+
+        <fieldset style="width:min-content; min-width: 170px; padding: 1rem;">
+
+            <legend>Please select your favourite genre</legend>
+
+            <input type="radio" name="genre" id="rock" value="rock">
+            <label for="rock">Rock</label><br>
+
+            <input type="radio" name="genre" id="pop" value="pop">
+            <label for="pop">Pop</label><br>
+
+            <input type="radio" name="genre" id="jazz" value="jazz">
+            <label for="jazz">Jazz</label><br>
+
+        </fieldset><br>
+
+        <fieldset style="width:min-content; min-width: 170px; padding: 1rem;">
+
+            <legend>Please select the music service(s) you use</legend>
+
+            <input type="checkbox" name="services" id="itunes" value="itunes" checked>
+            <label for="itunes">iTunes</label><br>
+
+            <input type="checkbox" name="services" id="spotify" value="spotify">
+            <label for="spotify">Spotify</label><br>
+
+            <input type="checkbox" name="services" id="youtube" value="youtube">
+            <label for="youtube">YouTube</label><br>
+
+        </fieldset><br>
+
+
+
+
+
+
+        <input type="submit" value="Login">
+
+    </form>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const pwd = document.getElementById('password');
+            const toggle = document.getElementById('togglePassword');
+            if (!pwd || !toggle) return;
+            toggle.addEventListener('change', () => {
+                pwd.type = toggle.checked ? 'text' : 'password';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

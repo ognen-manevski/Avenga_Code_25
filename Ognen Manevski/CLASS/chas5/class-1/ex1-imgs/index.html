@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map Example</title>
+</head>
+
+<style>
+    /* ...existing code... */
+    .map-wrap{
+        position: relative;
+        display: inline-block; /* shrink to image size */
+        line-height: 0;
+    }
+
+    /* SVG overlay sits on top of the image and scales with it */
+    .map-overlay{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* allow clicks through to <area> */
+    }
+
+    .map-overlay .shape{
+        fill: rgba(255,0,0,0.18);
+        stroke: rgba(255,0,0,0.9);
+        stroke-width: 4;
+        transition: fill .12s, stroke .12s;
+    }
+
+    .map-overlay .shape.hover{
+        fill: rgba(255,165,0,0.25);
+        stroke: rgba(255,165,0,0.95);
+    }
+
+    /* small label shown near shape when hovered */
+    .map-overlay text{
+        font: 14px sans-serif;
+        fill: #000;
+        pointer-events: none;
+        background: transparent;
+    }
+</style>
+<body>
+
+    <!-- ...existing code... -->
+    <div class="map-wrap">
+        <img id="mapImage" src="./imagemap1.jfif" alt="imgmap" usemap="#maptag" width="300">
+        <!-- SVG will be injected here and uses the image's natural size as viewBox -->
+        <svg class="map-overlay" aria-hidden="true"></svg>
+    </div>
+
+    <map name="maptag">
+        <!-- circle: coords = centerX, centerY, radius -->
+        <area shape="circle" coords="75,75,50" href="pages/area1.html" alt="Circle area" title="Go to area 1">
+        <!-- rect: coords = left,top,right,bottom -->
+        <area shape="rect" coords="150,150,300,0" href="pages/area2.html" alt="Rect area" title="Go to area 2">
+    </map>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const img = document.getElementById('mapImage');
+  const mapName = img.useMap && img.useMap.replace('#','');
+  const map = mapName ? document.querySelector(`map[name="${mapName}"]`) : null;
+  const svg = document.querySelector('.map-overlay');
+  if (!img || !map || !svg) return;
+
+  // Build overlay once the image natural size is known
+  function buildOverlay(){
+    // set viewBox to natural image size so shapes use original coordinates
+    const w = img.naturalWidth || img.width;
+    const h = img.naturalHeight || img.height;
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    svg.setAttribute('preserveAspectRatio', 'xMinYMin meet');
+    svg.innerHTML = ''; // clear previous
+
+    const areas = Array.from(map.querySelectorAll('area'));
+    areas.forEach((area, i) => {
+      const shapeType = (area.getAttribute('shape') || 'rect').toLowerCase();
+      const coords = area.coords.split(',').map(Number);
+      let el;
+      if (shapeType === 'circle') {
+        const [cx, cy, r] = coords;
+        el = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        el.setAttribute('cx', cx);
+        el.setAttribute('cy', cy);
+        el.setAttribute('r', r);
+      } else if (shapeType === 'rect') {
+        const [x1, y1, x2, y2] = coords;
+        const x = Math.min(x1,x2);
+        const y = Math.min(y1,y2);
+        const width = Math.abs(x2-x1);
+        const height = Math.abs(y2-y1);
+        el = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        el.setAttribute('x', x);
+        el.setAttribute('y', y);
+        el.setAttribute('width', width);
+        el.setAttribute('height', height);
+      } else if (shapeType === 'poly' || shapeType === 'polygon') {
+        el = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        el.setAttribute('points', coords.join(' '));
+      } else {
+        // fallback: draw bounding rect
+        const xs = coords.filter((_, idx) => idx % 2 === 0);
+        const ys = coords.filter((_, idx) => idx % 2 === 1);
+        const x = Math.min(...xs), y = Math.min(...ys);
+        const width = Math.max(...xs) - x;
+        const height = Math.max(...ys) - y;
+        el = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        el.setAttribute('x', x);
+        el.setAttribute('y', y);
+        el.setAttribute('width', width);
+        el.setAttribute('height', height);
+      }
+
+      el.classList.add('shape');
+      el.dataset.index = i;
+      svg.appendChild(el);
+
+      // label
+      const label = document.createElementNS('http://www.w3.org/2000/svg','text');
+      label.textContent = area.getAttribute('alt') || area.getAttribute('title') || `Area ${i+1}`;
+      // place label near top-left of shape (rudimentary)
+      const bbox = el.getBBox();
+      label.setAttribute('x', Math.max(4, bbox.x + 6));
+      label.setAttribute('y', Math.max(14, bbox.y + 14));
+      label.style.display = 'none';
+      label.dataset.index = i;
+      svg.appendChild(label);
+
+      // wire hover events on the area to toggle highlight (SVG has pointer-events:none, so we use area events)
+      area.dataset.index = i;
+      area.addEventListener('mouseenter', () => {
+        el.classList.add('hover');
+        label.style.display = 'block';
+      });
+      area.addEventListener('mouseleave', () => {
+        el.classList.remove('hover');
+        label.style.display = 'none';
+      });
+      // clicking area still works (svg pointer-events none allows clicks through)
+    });
+  }
+
+  if (img.complete && img.naturalWidth) buildOverlay();
+  else img.addEventListener('load', buildOverlay);
+
+  // rebuild if window is resized and natural size is available (handles some edge cases)
+  window.addEventListener('resize', () => {
+    if (img.naturalWidth) buildOverlay();
+  });
+});
+</script>
+    
+</body>
+</html>
