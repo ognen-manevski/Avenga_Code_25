@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Alkali Metal */
+    --alkali-metal-light: hsl(192, 100%, 86%);
+    --alkali-metal-dark: hsl(192, 100%, 27%);
+
+    /* Alkaline Earth Metal */
+    --alkaline-earth-metal-light: hsl(0, 100%, 86%);
+    --alkaline-earth-metal-dark: hsl(349, 100%, 42%);
+
+    /* Transition Metal */
+    --transition-metal-light: hsl(270, 100%, 86%);
+    --transition-metal-dark: hsl(257, 83%, 56%);
+
+    /* Post-transition Metal */
+    --post-transition-metal-light: hsl(140, 100%, 86%);
+    --post-transition-metal-dark: hsl(120, 100%, 13%);
+
+    /* Metalloid */
+    --metalloid-light: hsl(33, 100%, 86%);
+    --metalloid-dark: hsl(25, 100%, 29%);
+
+    /* Reactive Nonmetal */
+    --reactive-nonmetal-light: hsl(216, 100%, 86%);
+    --reactive-nonmetal-dark: hsl(216, 100%, 47%);
+
+    /* Noble Gas */
+    --noble-gas-light: hsl(350, 100%, 86%);
+    --noble-gas-dark: hsl(333, 95%, 45%);
+
+    /* Lanthanide */
+    --lanthanide-light: hsl(200, 100%, 86%);
+    --lanthanide-dark: hsl(200, 100%, 17%);
+
+    /* Actinide */
+    --actinide-light: hsl(20, 100%, 86%);
+    --actinide-dark: hsl(20, 100%, 39%);
+
+    /* Unknown Chemical Properties */
+    --unknown-light: hsl(260, 18%, 86%);
+    --unknown-dark: hsl(260, 18%, 26%);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0.3rem;
+    height: 4.3rem;
+    width: 4.3rem;
+    min-width: 4.3rem;
+    max-width: 4.3rem;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: transform 0.5s, box-shadow 0.5s;
+    transition-timing-function: ease-out;
+    position: relative;
+    padding: 6px;
+    text-align: center;
+}
+
+.cell:hover {
+    transform: translateY(-2px) scale(1.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+    transition-timing-function: ease;
+    z-index: 10;
+}
+
+.legend-item:hover {
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+    transition-timing-function: ease;
+    z-index: 10;
+}
+
+h1 {
+    line-height: 2;
+}
+
+.atomic-number {
+    position: absolute;
+    top: 0.3rem;
+    left: 0.3rem;
+    font-size: 0.5rem;
+}
+
+.symbol {
+    font-size: 1.5rem;
+    line-height: 1.1;
+}
+
+.name {
+    font-size: 0.5rem;
+    margin-top: 0.3rem;
+    line-height: 1;
+}
+
+/* Category colors - DRY with CSS custom properties */
+.alkali-metal {
+    --bg: var(--alkali-metal-light);
+    --fg: var(--alkali-metal-dark);
+}
+
+.alkaline-earth-metal {
+    --bg: var(--alkaline-earth-metal-light);
+    --fg: var(--alkaline-earth-metal-dark);
+}
+
+.transition-metal {
+    --bg: var(--transition-metal-light);
+    --fg: var(--transition-metal-dark);
+}
+
+.post-transition-metal {
+    --bg: var(--post-transition-metal-light);
+    --fg: var(--post-transition-metal-dark);
+}
+
+.metalloid {
+    --bg: var(--metalloid-light);
+    --fg: var(--metalloid-dark);
+}
+
+.reactive-nonmetal {
+    --bg: var(--reactive-nonmetal-light);
+    --fg: var(--reactive-nonmetal-dark);
+}
+
+.noble-gas {
+    --bg: var(--noble-gas-light);
+    --fg: var(--noble-gas-dark);
+}
+
+.lanthanide {
+    --bg: var(--lanthanide-light);
+    --fg: var(--lanthanide-dark);
+}
+
+.actinide {
+    --bg: var(--actinide-light);
+    --fg: var(--actinide-dark);
+}
+
+.unknown-chemical-properties {
+    --bg: var(--unknown-light);
+    --fg: var(--unknown-dark);
+}
+
+.cell {
+    background: var(--bg);
+    color: var(--fg);
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    transition: 0.3s;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+.legend-item input[type="radio"] {
+    cursor: pointer;
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: var(--fg);
+}

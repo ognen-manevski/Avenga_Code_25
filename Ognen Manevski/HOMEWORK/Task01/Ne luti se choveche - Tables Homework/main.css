@@ -1,0 +1,40 @@
+td {
+    min-width: 50px;
+    height: 50px;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: rgb(0, 255, 0);
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.field {
+    background-color: lightblue;
+    position: relative;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+}
+
+.field:after {
+    position: absolute;
+    content: "";
+    border: 1px black solid;
+    inset: 4px;
+    border-radius: 100%;
+}

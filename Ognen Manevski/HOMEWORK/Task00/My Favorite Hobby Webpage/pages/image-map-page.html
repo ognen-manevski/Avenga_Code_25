@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map Page</title>
+    <link rel="stylesheet" href="../src/css/main.css">
+</head>
+
+<body>
+
+    <nav>
+        <h3>Pages</h3>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./my_first_page.html">My First Website</a></li>
+            <li><a href="#">Image Map Page</a></li>
+        </ul>
+
+        <h3>Sections</h3>
+        <ul>
+            <li><a href="#section1"><small>No Sections Here</small></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="#" id="back-to-top">Back To Top &uarr;</a>
+
+        <img src="../src/imgs/5 Best Coding Programs for Aspiring Programmers1650304687858345.avif" alt="hero"
+            class="hero-img">
+
+        <h1>Image Map</h1>
+
+
+
+        <img src="../src/imgs/html-css-js.jpg" alt="html, css and js logos" usemap="#html-css-js-map">
+
+        <map name="html-css-js-map">
+
+            <!-- left, top, right, bottom -->
+
+            <area shape="rect" coords="60,65,227,305" href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                target="_blank" title="Visit HTML documentation" alt="Visit HTML documentation">
+
+            <area shape="rect" coords="246,65,399,305" href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                target="_blank" alt="Visit CSS documentation" title="Visit CSS documentation">
+
+            <area shape="rect" coords="418,65,584,305" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                target="_blank" alt="Visit JS documentation" title="Visit JS documentation">
+
+        </map>
+
+        <p>
+            This is an interactive image map featuring the three core technologies of web development. Each section of the image below is clickable and will take you to the official MDN (Mozilla Developer Network) documentation for that technology. These three pillars - HTML for structure, CSS for styling, and JavaScript for interactivity—form the foundation of modern web development. Click on any logo to learn more and deepen your understanding of these essential web technologies.
+        </p>
+
+        <hr>
+
+    </main>
+
+
+</body>
+
+</html>
