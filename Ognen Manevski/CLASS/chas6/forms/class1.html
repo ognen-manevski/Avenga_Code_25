@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    form {
+        padding: 10px;
+        border: 1px solid black;
+        width: 320px;
+    }
+</style>
+
+<body>
+    <form action="">
+
+
+        <!-- single choice drpdown -->
+        <label for="devices">What device do you listen to music on?</label><br>
+        <select name="devices" id="devices">
+            <option disabled selected style="display: none;">Select an option</option>
+            <option value="ipod">iPod</option>
+            <option value="radio">Radio</option>
+            <option value="computer">Computer</option>
+        </select><br><br>
+
+        <!-- multichoice  -->
+        <label for="instruments">Do you play any of the following instruments?</label><br>
+        <select name="instruments" id="instruments" multiple="multiple" size="1">
+            <option value="guitar">Guitar</option>
+            <option value="drums">Drums</option>
+            <option value="keyboard">Keyboard</option>
+            <option value="bass">Bass</option>
+            <option value="bass">Bass</option>
+            <option value="bass">Bass</option>
+            <option value="bass">Bass</option>
+            <option value="bass">Bass</option>
+        </select><br><br>
+
+        <label for="user-song">Upload your song in .mp3 format: </label>
+        <input type="file" id="user-song" name="user-song" accept=".mp3"><br><br>
+
+    </form>
+    <br>
+    <hr><br>
+
+    <form action="" method="POST">
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+
+        <input type="submit" value="Login" style="cursor: pointer;">
+        <input type="reset" value="Reset" style="border: none; background-color: unset; cursor: pointer;">
+
+    </form>
+
+    <br>
+    <hr><br>
+
+    <form action="">
+        <input type="button" value="I'm a button">
+        <input type="image" src="./submit-button-png-11.png" alt="Submit Form" width="80px">
+        <button type="button">
+            I'm a button
+        </button>
+        <button type="button">
+            <img src="./submit-button-png-11.png" alt="submit" width="80px">I'm a button
+        </button>
+
+        <input type="hidden" name="product-code" value="12345">
+    </form>
+
+    <br>
+    <hr><br>
+
+    <form action="">
+
+        <fieldset>
+
+            <legend>Contact Info</legend>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="pls enter your email here"><br><br>
+
+            <label for="mobile">Mobile:</label>
+            <input type="tel" id="mobile" name="mobile"><br><br>
+
+            <label for="adress">Address:</label>
+            <input type="text" id="adress" name="adress"><br><br>
+
+            <input type="submit" value="Submit">
+
+        </fieldset>
+
+
+    </form>
+
+
+
+</body>
+
+</html>

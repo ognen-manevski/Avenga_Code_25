@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    td {
+        padding: 2rem;
+    }
+
+    tfoot td {
+        padding: .5rem;
+    }
+</style>
+
+<body>
+    <form action="process.php" method="post">
+
+        <table border="1">
+            <thead>
+
+                <tr>
+                    <th style="text-align: left; background-color: #f3f3f3;">
+                        Test form
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name"><br><br>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email"><br><br>
+
+                        <label for="gender">Gender</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br><br>
+
+                        <label for="continent">Continent</label>
+                        <select id="continent" name="continent">
+                            <option value="select" disabled selected>Please select...</option>
+                            <option value="asia">Asia</option>
+                            <option value="europe">Europe</option>
+                            <option value="north_america">North America</option>
+                            <option value="south_america">South America</option>
+                            <option value="australia">Australia</option>
+                            <option value="africa">Africa</option>
+                            <option value="antarctica">Antarctica</option>
+                        </select><br><br>
+
+                        <label for="meals">Meals</label>
+                        <input type="checkbox" name="meals" id="breakfast" value="breakfast">
+                        <label for="breakfast">breakfast</label>
+                        <input type="checkbox" name="meals" id="lunch" value="lunch">
+                        <label for="lunch">lunch</label>
+                        <input type="checkbox" name="meals" id="dinner" value="dinner">
+                        <label for="dinner">dinner</label><br><br>
+
+                        <label for="remark">remark</label>
+                        <textarea id="remark" name="remark"></textarea><br><br>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td style="text-align: right; background-color: #f3f3f3;">
+                        <input type="submit" value="Send">
+                        <input type="reset" value="Cancel">
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</body>
+
+</html>
