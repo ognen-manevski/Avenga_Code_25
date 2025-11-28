@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "roboto";
+    src: url("../font/BodoniModaSC-Italic-VariableFont_opsz\,wght.ttf") format("woff"),
+         url("../font/BodoniModaSC-Italic-VariableFont_opsz\,wght.ttf") format("truetype");
+}
+
+p{
+    font-family: "roboto", sans-serif;
+    font-style: italic;
+}

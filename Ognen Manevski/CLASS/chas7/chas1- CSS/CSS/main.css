@@ -1,0 +1,92 @@
+:root{
+    --red: #FF0000;
+}
+
+/* universal selector  */
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* type selector */
+
+main {
+    background-color: antiquewhite;
+}
+
+
+p {
+    font-size: 18px;
+}
+
+/* class selector  */
+
+.yellow-background,
+p {
+    background-color: rgb(255, 248, 181);
+}
+
+.blue-text {
+    color: blue;
+}
+
+/* id selector  */
+
+#links {
+    font-size: 0.9rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+/* child selector  */
+
+section>p {
+    margin-left: 20px;
+}
+
+section>p>span {
+    font-weight: bold;
+}
+
+header li {
+    color: red;
+}
+
+/* adj seclector  */
+
+h1+span {
+    font-style: italic;
+}
+
+/* general sibling selector  */
+
+h1~ul {
+    list-style-type: square;
+}
+
+/* specificity */
+
+section p {
+    color: green;
+}
+
+/* rgb color  */
+
+
+.rgb-bg-color {
+    background-color: rgb(200, 100, 150);
+}
+
+.hex-bg-color {
+    background-color: #64A6BD;
+}
+
+/* opacity and  rgba color  */
+
+button {
+    background-color: hsl(from var(--red) h s l / 0.5);
+    border: none;
+    padding: 10px 20px;
+}
