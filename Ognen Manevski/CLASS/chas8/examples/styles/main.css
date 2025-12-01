@@ -1,10 +1,87 @@
 @font-face {
     font-family: "roboto";
-    src: url("../font/BodoniModaSC-Italic-VariableFont_opsz\,wght.ttf") format("woff"),
-         url("../font/BodoniModaSC-Italic-VariableFont_opsz\,wght.ttf") format("truetype");
+    src: url("../font/Roboto-VariableFont_wght.ttf") format("woff"),
+        url("../font/Roboto-VariableFont_wght.ttf") format("truetype");
+
+    font-family: "bodini";
+    src: url("../font/BodoniModaSC-VariableFont_opsz\,wght.ttf") format("woff"),
+        url("../font/BodoniModaSC-VariableFont_opsz\,wght.ttf") format("truetype");
 }
 
-p{
+* {
     font-family: "roboto", sans-serif;
+}
+
+h1 {
+    font-family: "bodini", serif;
+}
+
+
+body {
+    font-size: 18px;
+
+}
+
+.text-size {
+    /* abs size  */
+    font-size: xx-large;
+
+    /* relative size  */
+    font-size: larger;
+
+    font-size: 200%;
+}
+
+.text-size-small {
+    font-size: small;
+}
+
+.text-size-smaller {
+    font-size: smaller;
+}
+
+.text-size-150 {
+    font-size: 150%;
+}
+
+.text-weight {
+    font-weight: 700;
+}
+
+.text-style {
     font-style: italic;
+    /* font-style: oblique; */
+}
+
+.text-transform{
+    text-transform: uppercase;
+    text-transform: capitalize;
+}
+
+.text-decoration {
+    text-decoration: wavy underline;
+}
+
+.decoration{
+    text-decoration: line-through overline red wavy 2px;
+}
+
+.line-height {
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    word-spacing: 0.2em;
+    word-break: break-all;
+    word-break: break-word;
+    text-align: justify;
+    text-shadow:2px 2px 2px blue;
+}
+
+.line-height:first-letter {
+    font-size: 200%;
+    color: red;
+}
+
+.line-height:first-line {
+    font-weight: bold;
+    color: green !important;
 }
