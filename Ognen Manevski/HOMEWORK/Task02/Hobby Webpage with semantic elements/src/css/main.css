@@ -37,6 +37,7 @@ img {
     text-decoration: none;
     color: red;
     font-weight: bold;
+    margin-right: 200px;
 }
 
 nav {
@@ -49,6 +50,7 @@ nav {
     padding: 2rem;
 }
 
+aside ul,
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -73,10 +75,31 @@ h4 {
     line-height: 2.6rem;
 }
 
-main, footer {
+/* aside  */
+
+aside {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-color: lightgray;
+    padding: 1rem;
+}
+
+
+.main-content {
+    position: relative;
+}
+
+/* main  */
+
+main {
     position: relative;
     margin-left: 200px;
+    margin-right: 210px;
     padding: 2rem;
+    min-height: 100vh;
 }
 
 blockquote {
@@ -135,15 +158,32 @@ li {
     .flex-section div {
         flex-basis: unset;
     }
-
-
 }
 
 /* footer  */
 
-footer{
+footer {
     background-color: hsl(0, 0%, 70%);
     color: hsl(0, 0%, 40%);
     text-align: center;
     font-size: 0.8rem;
+    padding: 2rem;
+    margin-left: 200px;
+    margin-top: 10px;
+    padding-right: 210px;
+}
+
+/* aside media  */
+
+@media screen and (max-width: 1200px) {
+    aside{
+        display: none;
+    }
+    main, footer{
+        margin-right: unset;
+    }
+    footer{
+        padding-right: unset;
+    }
+
 }
