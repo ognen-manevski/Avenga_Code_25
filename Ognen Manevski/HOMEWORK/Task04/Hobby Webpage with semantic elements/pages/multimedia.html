@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Elements Demo</title>
+    <meta name="description"
+        content="Demonstration page showing HTML5 video, audio, embedded YouTube tutorials, and an interactive map iframe.">
+    <meta name="keywords" content="HTML5 video, audio, iframe, YouTube embed, map, coding demo">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ognen Manevski">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link rel="stylesheet" href="../src/css/main.css">
+
+
+</head>
+
+<body>
+
+    <nav>
+        <h3>Pages</h3>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./my_first_page.html">My First Website</a></li>
+            <li><a href="./image-map-page.html">Image Map Page</a></li>
+            <li><a href="#">Media Page</a></li>
+        </ul>
+        <h3>Sections</h3>
+        <ul>
+            <li><a href="#video"><small>Section 1</small><br> Local Video</a></li>
+            <li><a href="#audio"><small>Section 2</small><br> Local Audio</a></li>
+            <li><a href="#tutorials"><small>Section 3</small><br> YouTube Tutorials</a></li>
+            <li><a href="#map"><small>Section 4</small><br> Map Embed</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="#" id="back-to-top">Back To Top &uarr;</a>
+        <header>
+            <img src="../src/imgs/5 Best Coding Programs for Aspiring Programmers1650304687858345.avif" alt="slika"
+                class="hero-img">
+            <h1>HTML Media Elements Demo</h1>
+            <p>This page showcases usage of built-in HTML media and embed elements: a local <strong>video</strong>,
+                local <strong>audio</strong>, external <strong>YouTube</strong> tutorial embeds, and a <strong>Google
+                    Maps</strong> iframe. No CSS added per instructions.</p>
+        </header>
+        <article id="video">
+            <h2>Local Video</h2>
+            <p>Below is a locally hosted MP4 file placed in <code>src/media/</code>.</p>
+            <video src="../src/media/1476227_People_Technology_1280x720.mp4" width="640" height="360" controls autoplay
+                muted preload="metadata"></video>
+        </article>
+        <article id="audio">
+            <h2>Local Audio</h2>
+            <p>Example of the HTML5 <code>&lt;audio&gt;</code> element with controls:</p>
+            <audio src="../src/media/freepik-santa-is-coming.mp3" controls preload="none"></audio>
+        </article>
+        <article id="tutorials">
+            <h2>Embedded YouTube Tutorials</h2>
+            <p>Two embedded HTML/CSS/JS introductory videos (using standard YouTube iframe embeds). Channel requested
+                (coding2go) requires login redirect; using similar publicly accessible tutorials instead.</p>
+            <div>
+                <h3>HTML Crash Course</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pQN-pnXPaVg"
+                    title="HTML Crash Course" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div>
+                <h3>CSS Grid Course - The Only Grid Tutorial You'll Ever Need!</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JYfiaSKeYhE?si=NA0stCMp4Jtj70gR"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+        <section id="map">
+            <h2>Google Maps Iframe Embed</h2>
+            <p>Location embedded with a standard Google Maps iframe:</p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1079.2369462695847!2d21.43953715322389!3d41.986474605530375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1354156e09f8f943%3A0x4f70677f66ebc77c!2sAvenga%20Academy!5e0!3m2!1sen!2smk!4v1764545989521!5m2!1sen!2smk"
+                width="600" height="450" style="border:0;" allowfullscreen loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2025 Ognen Manevski</p>
+    </footer>
+</body>
+
+</html>

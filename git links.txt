@@ -1,0 +1,5 @@
+prezentacii:
+https://aa-codecademy.github.io/mkwd14-01-basicwebdev-and-ai/G1/
+
+avenga repo:
+https://github.com/aa-codecademy/mkwd14-01-basicwebdev-and-ai/tree/main/G1

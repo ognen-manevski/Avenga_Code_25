@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive image map linking to MDN docs for HTML, CSS, and JavaScript. Part of my hobby website about coding.">
+    <meta name="keywords" content="image map, HTML, CSS, JavaScript, MDN, coding hobby, web development">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ognen Manevski">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>Image Map Page</title>
+    <link rel="stylesheet" href="../src/css/main.css">
+</head>
+
+<body>
+
+    <nav>
+        <h3>Pages</h3>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./my_first_page.html">My First Website</a></li>
+            <li><a href="#">Image Map Page</a></li>
+            <li><a href="./multimedia.html">Media Page</a></li>
+        </ul>
+
+        <h3>Sections</h3>
+        <ul>
+            <li><a href="#section1"><small>Section 1</small><br> Interactive Map</a></li>
+            <li><a href="#section2"><small>Section 2</small><br> Why Image Maps Matter</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="#" id="back-to-top">Back To Top &uarr;</a>
+
+        <header>
+            <img src="../src/imgs/5 Best Coding Programs for Aspiring Programmers1650304687858345.avif" alt="hero"
+                class="hero-img">
+            <h1>Image Map</h1>
+        </header>
+
+        <article id="section1">
+            <h2>Interactive Web Technology Map</h2>
+
+            <img src="../src/imgs/html-css-js.jpg" alt="html, css and js logos" usemap="#html-css-js-map">
+
+            <map name="html-css-js-map">
+
+                <!-- left, top, right, bottom -->
+
+                <area shape="rect" coords="60,65,227,305" href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                    target="_blank" title="Visit HTML documentation" alt="Visit HTML documentation">
+
+                <area shape="rect" coords="246,65,399,305" href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                    target="_blank" alt="Visit CSS documentation" title="Visit CSS documentation">
+
+                <area shape="rect" coords="418,65,584,305" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                    target="_blank" alt="Visit JS documentation" title="Visit JS documentation">
+
+            </map>
+
+            <p>
+                This is an interactive image map featuring the three core technologies of web development. Each section of the image below is clickable and will take you to the official MDN (Mozilla Developer Network) documentation for that technology. These three pillars - HTML for structure, CSS for styling, and JavaScript for interactivity—form the foundation of modern web development. Click on any logo to learn more and deepen your understanding of these essential web technologies.
+            </p>
+        </article>
+
+        <hr>
+
+        <article id="section2">
+            <h2>Why Image Maps Matter</h2>
+            <p>
+                Image maps are a classic HTML feature that allows you to define clickable regions within a single image. While modern CSS and JavaScript offer alternative approaches, understanding image maps demonstrates important web development concepts like coordinate systems, semantic linking, and accessible interactivity. This technique is particularly useful for diagrams, infographics, and visual navigation elements.
+            </p>
+            <p>
+                The <code>&lt;map&gt;</code> and <code>&lt;area&gt;</code> elements work together to create hotspots with different shapes (rect, circle, poly). Each area can link to different destinations, making a single image serve as a multi-purpose navigation tool.
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ognen Manevski</p>
+    </footer>
+
+</body>
+
+</html>
