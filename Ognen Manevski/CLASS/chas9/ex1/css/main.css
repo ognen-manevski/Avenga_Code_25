@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.position-lecture {
+    margin: 10px;
+    padding: 10px;
+    border: 2px dashed black;
+    border-width: 0 0 0 10px;
+    border-radius: 1rem;
+}
+
+.color-box {
+    background-color: aqua;
+    width: 300px;
+    height: 300px;
+}
+
+.block-one {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.block-two {
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.container-projects {
+    width: 100%;
+    background-color: aliceblue;
+    padding: 1rem;
+}
+
+.project-card {
+    width: 150px;
+    /* height: 50px; */
+    background-color: coral;
+    display: inline-block;
+    /* margin: auto; */
+    padding: 1rem;
+    margin: 1rem;
+}
+
+span{
+    display: inline-block;
+    color: red;
+    height: 40px;
+}
+
+.container-overflow {
+    width: 300px;
+    height: 200px;
+    background-color: lightgray;
+    overflow: auto;
+    border: 2px solid black;
+    padding: 1rem;
+}
