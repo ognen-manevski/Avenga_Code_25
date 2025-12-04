@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box  ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.position-lecture {
+    position: static;
+    border: 1px solid black;
+}
+
+
+.box{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: red;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+#two{
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background: blue;
+}
+
+#three{
+    position: relative;
+    top: 50px;
+    right: 20px;
+    background: green;
+}
+
+.relative{
+    position: relative;
+    border: 1px solid black;
+    margin-bottom: 50px;
+}
+
+.absolute{
+    position: absolute;
+    border: 1px solid black;
+    top: 50px;
+    left: 50px;
+}
+
+.outer{
+    width: 420px;
+    height: 150px;
+    overflow: scroll;
+    padding-left: 120px;
+    margin-bottom: 1rem;
+}
+
+.pos-fixed{
+    position: fixed;
+    border: 1px solid black;
+    left: 0;
+    top: 25px;
+}
+
+.pos-sticky{
+    position: sticky;
+    border: 1px solid black;
+    top: 0;
+}
