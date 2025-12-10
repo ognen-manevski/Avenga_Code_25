@@ -1,0 +1,80 @@
+h1 {
+    color: white;
+    background-color: red;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        background-color: blue;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        background-color: green;
+    }
+}
+
+@media (orientation: landscape) {
+    h1 {
+        background-color: yellow;
+    }
+}
+
+.layout-example {
+    background: lightgrey;
+    height: 300px;
+    margin-top: 40px;
+    padding: 1rem;
+}
+
+.layout-example div {
+    background: limegreen;
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.layout-example div:nth-child(2) {
+    background: orange;
+    width: 30%;
+}
+
+.layout-example div:nth-child(3) {
+    background: purple;
+    width: 50%;
+}
+
+@media (max-width: 800px) {
+    .layout-example div {
+        width: 100%;
+        height: 30%;
+        float: none;
+    }
+
+    .layout-example div:nth-child(2) {
+        width: inherit;
+        height: 40%;
+    }
+
+    .layout-example div:nth-child(3) {
+        width: inherit;
+        height: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .layout-example {
+        height: 800px;
+    }
+}
+
+/* @media (hover: hover){
+    h1 {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+} */
+

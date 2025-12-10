@@ -1,0 +1,15 @@
+h1 {
+    color: blue;
+    background-color: red;
+}
+
+
+.layout-example {
+    background: orange;
+    color: red;
+    height: 300px;
+    margin-top: 40px;
+    padding: 1rem;
+    display: flex;
+    border: 1px solid black;
+}
