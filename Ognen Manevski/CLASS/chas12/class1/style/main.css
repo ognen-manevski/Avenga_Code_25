@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #333;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: 90%;
+    }
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: #b3b3b3;
+    text-transform: uppercase;
+}
+
+article {
+    background-color: #505050;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.parent {
+    border: 5px solid lightcoral;
+}
+
+.item {
+    background-color: deepskyblue;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin: 5px;
+
+    /* flex-grow: 1; */
+}
+
+/* display flex  */
+
+.example-flex {
+    display: flex;
+}
+
+/* direction  */
+
+.flex-direction {
+    display: flex;
+    flex-direction: row;
+}
+
+/* flex wrap */
+
+.flex-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-wrap .item {
+    width: 150px;
+}
+
+
+/* flex grow shrink  */
+
+
+/* .flex-grow-shrink :first-child {
+    width: 550px;
+} */
+
+.flex-grow-shrink {
+    display: flex;
+    /* flex-direction: column; */
+    /* flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1; */
+    flex-wrap: wrap;
+}
+
+.flex-grow-shrink .item {
+    flex: 0 1 200px;
+}
+
+/* align items  */
+
+.align-items {
+    display: flex;
+    height: 250px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.align-items .item {
+    height: 50px;
+    width: 150px;
+}
+
+/* justify content  */
+
+.justify-content {
+    display: flex;
+    height: 150px;
+    justify-content: space-around;
+}
+
+/* align content  */
+
+.align-content {
+    display: flex;
+    height: 500px;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.align-content .item {
+    height: 50px;
+    width: 200px;
+}
+
+/* align self */
+
+.align-self {
+    display: flex;
+    height: 250px;
+    align-items: center;
+}
+
+.align-self .item:nth-child(2) {
+    align-self: flex-start;
+}
+
+/* item order  */
+
+.item-order {
+    display: flex;
+    height: 250px;
+    align-items: center;
+}
+
+.item-order .item:nth-child(2) {
+    order: -1;
+}
