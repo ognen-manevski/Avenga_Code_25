@@ -1,0 +1,11 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.box{
+    background-color: lightcoral;
+    border: rgb(212, 75, 75) 2px solid;
+    padding: 1rem;
+}
