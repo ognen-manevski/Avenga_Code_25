@@ -1,0 +1,36 @@
+
+/*             ABOUT           */
+/*             ABOUT           */
+/*             ABOUT           */
+
+
+#types-of-coffee details h3 {
+    font-size: 2rem;
+}
+
+
+/* history  */
+
+
+.img50 {
+    width: 50%;
+    min-width: 300px;
+}
+
+@media (max-width: 800px) {
+    .img50 {
+        width: 100%;
+    }
+}
+
+
+/* beans  */
+
+#coffee-beans img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+
+

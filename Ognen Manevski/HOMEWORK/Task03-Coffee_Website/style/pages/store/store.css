@@ -1,0 +1,60 @@
+/* Store Page */
+/* Store Page */
+/* Store Page */
+.width-3 .page-card:nth-of-type(4) {
+    clear: both;
+}
+
+@media (max-width: 1200px) {
+    .width-3 .page-card:nth-of-type(4) {
+        clear: none;
+    }
+}
+
+.width-2 .page-card {
+    width: calc(100% / 2 - 1.5rem);
+}
+
+@media (max-width: 800px) {
+    .width-2 .page-card {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+#coffee-products img {
+    margin-bottom: 0;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--main-brown-1);
+}
+
+/* promotions  */
+
+small {
+    color: var(--font-medium);
+}
+
+
+
+/* Order Form */
+
+.form-section {
+    margin-bottom: 2rem;
+}
+
+.order-summary {
+    background: var(--font-lighter);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.price-total {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    color: var(--main-orange-2);
+}
