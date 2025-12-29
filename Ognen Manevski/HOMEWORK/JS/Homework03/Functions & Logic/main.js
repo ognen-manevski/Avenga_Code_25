@@ -306,16 +306,26 @@ let getLargerNumber = function (a, b) {
 let getMiddleNumber = function (a, b, c) {
     if (typeof a === "number" && typeof b === "number" && typeof c === "number") {
 
-        switch (true) {
-            case (a > b && a < c) || (a < b && a > c):
-                return a;
-            case (b > a && b < c) || (b < a && b > c):
-                return b;
-            case (c > a && c < b) || (c < a && c > b):
-                return c;
-            default:
-                return null; //znachi ima isti values
+        if ((a > b && a < c) || (a < b && a > c)) {
+            return a;
+        } else if ((b > a && b < c) || (b < a && b > c)) {
+            return b;
+        } else if ((c > a && c < b) || (c < a && c > b)) {
+            return c;
+        } else {
+            return null;
         }
+
+        // switch (true) {
+        //     case (a > b && a < c) || (a < b && a > c):
+        //         return a;
+        //     case (b > a && b < c) || (b < a && b > c):
+        //         return b;
+        //     case (c > a && c < b) || (c < a && c > b):
+        //         return c;
+        //     default:
+        //         return null; //znachi ima isti values
+        // }
 
     }
     return null;

@@ -26,15 +26,15 @@ function sumOfMinAndMax(arr) {
     for (let item of arr) {
         if (validateNumber(item)) {
 
-            min = Math.min(min, item);
-            max = Math.max(max, item);
+            // min = Math.min(min, item);
+            // max = Math.max(max, item);
 
-            // if (item < min) {
-            //     min = item;
-            // }
-            // if (item > max) {
-            //     max = item;
-            // }
+            if (item < min) {
+                min = item;
+            }
+            if (item > max) {
+                max = item;
+            }
 
         } else {
 
