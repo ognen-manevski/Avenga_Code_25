@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Task 02</h1>
+
+    <div style="display: flex; gap: 20px;">
+        <div style="border: 1px solid grey; padding: 20px;">
+            <h2>Enter Book Details</h2>
+            <form action="" id="form">
+                <label for="title">Title: </label>
+                <input type="text" id="title" placeholder="Enter book title" required>
+                <br>
+                <br>
+                <label for="author">Author: </label>
+                <input type="text" id="author" placeholder="Enter book author" required>
+                <br>
+                <br>
+                <fieldset style="width: 200px; padding-block: 1.2rem;">
+                    <legend>Reading Status:</legend>
+                    <input type="radio" id="read" name="readingStatus" value="read">
+                    <label for="read">Already Read</label>
+                    <br><br>
+                    <input type="radio" id="notRead" name="readingStatus" value="notRead" checked>
+                    <label for="notRead">Not Read Yet</label>
+                </fieldset>
+                <br>
+                <button type="submit" id="btn">Submit</button>
+            </form>
+        </div>
+        <div style="border: 1px solid grey; padding: 20px; min-width: 200px;">
+            <h2>Book List</h2>
+            <ul id="bookList"></ul>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="./main.js"></script>
+
+</html>
