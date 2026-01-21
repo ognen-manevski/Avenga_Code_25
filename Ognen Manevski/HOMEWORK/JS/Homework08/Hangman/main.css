@@ -1,0 +1,113 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 1rem;
+}
+
+#hangman-art {
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1.15;
+}
+
+pre {
+    text-align: left;
+}
+
+h1{
+    margin-bottom: 1rem;
+}
+
+h4 {
+    margin-top: 0;
+}
+
+.head,
+.torso,
+.left-arm,
+.right-arm,
+.left-leg,
+.right-leg {
+    opacity: 0.2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+    /* background-color: yellow; */
+}
+
+.flex-container {
+    width: max-content;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex: 1 1 50%;
+}
+
+@media (max-width: 1000px) {
+    .flex-container {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+#word-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 0.5rem;
+}
+
+.letter-placeholder {
+    border-bottom: 1px solid black;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.2rem;
+}
+
+#keyboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 26rem;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    user-select: none;
+}
+
+.key-btn {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.key-btn:hover,
+.key-btn.flash {
+    background-color: lightgray;
+}
+
+#result-caption {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#result-caption.win {
+    color: green;
+}
+
+#result-caption.lose {
+    color: red;
+}

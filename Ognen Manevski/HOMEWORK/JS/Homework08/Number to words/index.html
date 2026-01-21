@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Words</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Numbers To Words</h1>
+        <p>Convert numeric input to word representation for numbers 0 to 1 Million <span class="nowrap">(0 - 1.000.000)</span>.</p>
+        <p class="disclaimer">
+            This converter supports only <strong>whole numbers.</strong><br>
+            Dots, commas, or spaces will be ignored.
+        </p>
+        <div class="flex-container">
+            <textarea class="flex-50" id="input" placeholder="Enter a number here"></textarea>
+            <textarea class="flex-50" id="result" placeholder="And the words will appear here" readonly></textarea>
+        </div>
+    </div>
+
+</body>
+<script src="./number-to-words.js"></script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman game</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>HANGMAN</h1>
+        <h4>Vanilla JavaScript Hangman Game</h4>
+        <div id="result-caption"></div>
+
+        <div class="flex-container">
+
+            <pre id="hangman-art">
+┌──────────────────────────┐    ╭────────╮
+└──────────────────────────┘    │ Lives: │
+  │  │   ╱ ╱         ││         │   <span id="lives-display">06</span>   │
+  │  │  ╱ ╱          ││         ╰────────╯
+  │  │ ╱ ╱        <span class="head">╭──────╮</span>
+  │  │╱ ╱         <span class="head">│ <span id="eyes">O  O</span> │</span>
+  │  │ ╱          <span class="head">╰──────╯</span>
+  │  │╱      <span class="left-arm">╭──╮</span> <span class="torso">╭─│  │─╮</span> <span class="right-arm">╭──╮</span>
+  │  │       <span class="left-arm">|  │</span> <span class="torso">│      |</span> <span class="right-arm">│  │</span>
+  │  │       <span class="left-arm">│  │</span> <span class="torso">│      │</span> <span class="right-arm">│  │</span>
+  │  │       <span class="left-arm">│  │</span> <span class="torso">│      │</span> <span class="right-arm">│  │</span>
+  │  │       <span class="left-arm">╰──╯</span> <span class="torso">│      │</span> <span class="right-arm">╰──╯</span>
+  │  │           <span class="left-leg">╭──╮</span><span class="torso">──</span><span class="right-leg">╭──╮</span>
+  │  │           <span class="left-leg">│  │</span>  <span class="right-leg">│  │</span>
+  │  │           <span class="left-leg">│  │</span>  <span class="right-leg">│  │</span>
+  │  │           <span class="left-leg">│  │</span>  <span class="right-leg">│  │</span>
+  │  │           <span class="left-leg">╰──╯</span>  <span class="right-leg">╰──╯</span>
+  │  │
+┌──────────────────┌──────────────┐     
+│                    ────┌──────────────┐     
+│                         ────┌──────────────┐     
+│                              ────┌──────────────┐
+└─────────────────────────────────────────────────┘
+</pre>
+
+            <div>
+                <div>
+                    <label for="topics">Choose a topic: </label>
+                    <select id="topics">
+                        <!-- topics will be populated here dynamically -->
+                    </select>
+                </div>
+                <div id="word-container"></div>
+
+                <p>Use the keyboard to guess the letters of the hidden word.</p>
+                <div id="keyboard-container"></div>
+                <hr>
+                <button type="button" id="hint-btn" disabled>Use Hint</button>
+                <button type="button" id="new-game-btn">New Game</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+<script src="./hangman.js"></script>
+
+</html>

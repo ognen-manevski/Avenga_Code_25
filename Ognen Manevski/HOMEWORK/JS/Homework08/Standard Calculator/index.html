@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Calculator</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+    <h1>Standard Calculator</h1>
+
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+
+        <div class="buttons">
+            <!-- Row 1: Clear and Back -->
+            <button class="btn btn-function btn-clear-wide" id="clear">C</button>
+            <button class="btn btn-function" id="backspace">←</button>
+            <button class="btn btn-operator" id="divide">÷</button>
+
+            <!-- Row 2: 7, 8, 9, multiply -->
+            <button class="btn btn-number" id="btn-7">7</button>
+            <button class="btn btn-number" id="btn-8">8</button>
+            <button class="btn btn-number" id="btn-9">9</button>
+            <button class="btn btn-operator" id="multiply">×</button>
+
+            <!-- Row 3: 4, 5, 6, subtract -->
+            <button class="btn btn-number" id="btn-4">4</button>
+            <button class="btn btn-number" id="btn-5">5</button>
+            <button class="btn btn-number" id="btn-6">6</button>
+            <button class="btn btn-operator" id="subtract">−</button>
+
+            <!-- Row 4: 1, 2, 3, add -->
+            <button class="btn btn-number" id="btn-1">1</button>
+            <button class="btn btn-number" id="btn-2">2</button>
+            <button class="btn btn-number" id="btn-3">3</button>
+            <button class="btn btn-operator" id="add">+</button>
+
+            <!-- Row 5: decimal, 0, equals -->
+            <button class="btn btn-number" id="decimal">.</button>
+            <button class="btn btn-number btn-zero" id="btn-0">0</button>
+            <button class="btn btn-equals" id="equals">=</button>
+        </div>
+    </div>
+
+    
+</body>
+<script src="./standard-calculator.js"></script>
+</html>
