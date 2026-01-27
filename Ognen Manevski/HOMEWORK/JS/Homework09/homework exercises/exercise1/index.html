@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="wrapper1">
+        <h1>Header 1</h1>
+        <h3>Subheader 1</h3>
+        <p class="text">Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div id="wrapper2">
+        <h1>Header 2</h1>
+        <h3>Subheader 2</h3>
+        <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nisi magni magnam ab impedit officia, quae eos
+        iusto quos totam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit mollitia blanditiis ab sapiente iusto repellat
+        nihil?</p>
+    <button type="button">Click me</button>
+
+
+    <hr>
+
+    <style>
+        fieldset {
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            width: fit-content;
+            padding: 10px;
+        }
+        .inputs-container {
+            display: flex;
+            width: min-content;
+            gap: 20px;
+            padding: 20px;
+        }
+        input {
+            padding: 5px;
+            width: 5ch;
+        }
+        #calculate{
+            margin: 0 auto;
+            width: fit-content;
+        }
+    </style>
+
+    <h1>Exercise 4</h1>
+    <fieldset>
+        <legend>Enter Your 3 Numbers</legend>
+        <div class="inputs-container">
+            <input type="number" id="num1">
+            <input type="number" id="num2">
+            <input type="number" id="num3">
+        </div>
+        <button type="button" id="calculate">Calculate Average</button>
+        <div id="result"></div>
+    </fieldset>
+
+    <!-- jquery cdn  -->
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
