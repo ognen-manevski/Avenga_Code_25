@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    input {
+        margin-bottom: 0.5rem;
+    }
+</style>
+
+<body>
+
+    <div id="colorDisplay"></div>
+
+
+    <fieldset id="fieldset1">
+        <legend>Title Generator</legend>
+        <label for="color">Color:</label>
+        <input type="text" name="color" id="color" placeholder="Enter a color..." /><br>
+        <label for="fontSize">Font Size:</label>
+        <input type="text" name="fontSize" id="fontSize" placeholder="Enter font size..." /><br>
+        <label for="titleText">Text:</label>
+        <input type="text" name="titleText" id="titleText" placeholder="Enter text..." /></br>
+        <button id="btn1" type="button">Generate Title</button>
+        <div id="titleResult"></div>
+    </fieldset>
+
+    <hr>
+
+    <button id="generateNames" type="button">Generate Names</button>
+    <ul id="names-result"></ul>
+
+    <hr>
+
+    <fieldset>
+        <legend>Dynamic List Generator</legend>
+        <label for="color1">Color:</label>
+        <input type="text" name="color1" id="color1" placeholder="Enter a color..." /><br>
+        <label for="fontSize1">Font Size:</label>
+        <input type="text" name="fontSize1" id="fontSize1" placeholder="Enter font size..." /><br>
+        <label for="titleText1">List Items (separated by commas ","):</label>
+        <textarea name="titleText1" id="titleText1" placeholder="Enter list items separated by commas..."></textarea><br>
+        <button id="btn1" type="button">Generate Title</button>
+        <div id="titleResult"></div>
+    </fieldset>
+
+
+
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
