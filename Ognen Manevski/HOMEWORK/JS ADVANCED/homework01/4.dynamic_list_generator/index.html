@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    input {
+        margin-bottom: 0.5rem;
+    }
+    .flex {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+</style>
+
+<body>
+
+    <fieldset>
+        <legend>Dynamic List Generator</legend>
+        <label for="color">Color:</label>
+        <input type="text" name="color" id="color" placeholder="Enter a color..." /><br>
+        <label for="fontSize">Font Size:</label>
+        <input type="number" name="fontSize" id="fontSize" placeholder="Enter font size..." /><br>
+        <div class="flex">
+            <div>
+                <label for="items">List of Items: <br> <small>(separated by commas ",")</small></label>
+            </div>
+            <textarea name="items" id="items" rows="5" cols="20"
+                placeholder="Enter list items separated by commas..."></textarea>
+        </div>
+        <br>
+        <button id="btn" type="button">Generate list</button>
+        <button id="resetBtn" type="button" disabled>Reset Lists</button>
+
+        <div id="error"></div>
+        <div id="result" class="flex"></div>
+    </fieldset>
+
+    <script src="./main.js"></script>
+
+</body>
+
+</html>

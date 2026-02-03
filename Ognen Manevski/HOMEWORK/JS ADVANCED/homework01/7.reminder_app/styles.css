@@ -1,0 +1,48 @@
+   input {
+       margin-bottom: 0.5rem;
+   }
+
+   .flex {
+       display: flex;
+       gap: 1rem;
+       flex-wrap: wrap;
+   }
+
+   #showBtn:disabled {
+       cursor: help;
+   }
+
+   .reminder {
+       position: relative;
+       font-family: sans-serif;
+       max-width: 250px;
+       padding: 1rem;
+       border-radius: 0.5rem;
+       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+   }
+
+   .reminder h3 {
+       margin: 0;
+   }
+
+   .reminder .priority {
+       margin-top: 0.5rem;
+       font-size: 0.8rem;
+   }
+
+   .reminder .body {
+       margin-bottom: 0;
+   }
+
+   .delete {
+       font-size: 0.8rem;
+       cursor: pointer;
+       opacity: 0.7;
+       position: absolute;
+       top: 0.5rem;
+       right: 0.5rem;
+   }
+
+   .delete:hover {
+       opacity: 1;
+   }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    input {
+        margin-bottom: 0.5rem;
+    }
+
+    .flex {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+</style>
+
+<body>
+
+    <fieldset>
+        <legend>Movie Renting Form</legend>
+        <label for="movieName">Search for a Movie:</label>
+        <input type="text" name="movieName" id="movieName" placeholder="Movie Name..." />
+        <button id="searchBtn" type="button">Search</button>
+
+        <div id="error" style="color: red;"></div>
+        <div id="result" style="color: green;"></div>
+    </fieldset>
+
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
