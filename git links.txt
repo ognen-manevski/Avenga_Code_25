@@ -1,10 +1,10 @@
 prezentacii:
 https://aa-codecademy.github.io/mkwd14-01-basicwebdev-and-ai/G1/
 https://aa-codecademy.github.io/mkwd14-02-basicjs-and-ai/G1/
-https://aa-codecademy.github.io/mkwd14-03-ajs-and-ai/main/G1
+https://aa-codecademy.github.io/mkwd14-03-ajs-and-ai/tree/main/G1
 
 
 avenga repo:
 https://github.com/aa-codecademy/mkwd14-01-basicwebdev-and-ai/tree/main/G1
 https://github.com/aa-codecademy/mkwd14-02-basicjs-and-ai/tree/main/G1
-https://github.com/aa-codecademy/mkwd14-03-ajs-and-ai/main/G1
+https://github.com/aa-codecademy/mkwd14-03-ajs-and-ai/tree/main/G1

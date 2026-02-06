@@ -7,7 +7,6 @@ let emailInput = document.getElementById('email');
 
 let formElement = document.querySelector('form');
 
-
 let addBtn = document.getElementById('addBtn');
 let resetBtn = document.getElementById('resetBtn');
 
@@ -31,15 +30,12 @@ function verifyStudent() {
     errorDiv.innerHTML = '';
     if (fnameInput.value === '' || lnameInput.value === '' || ageInput.value === '' || emailInput.value === '') {
         errorDiv.innerHTML += `<div>All fields are required!</div>`;
-        errors++;
     }
     if (isNaN(ageInput.value) || ageInput.value <= 0) {
         errorDiv.innerHTML += `<div>Age must be a positive number!</div>`;
-        errors++;
     }
     if (!emailInput.value.includes('@')) {
         errorDiv.innerHTML += `<div>Email must be valid and contain "@" symbol!</div>`;
-        errors++;
     }
 }
 
