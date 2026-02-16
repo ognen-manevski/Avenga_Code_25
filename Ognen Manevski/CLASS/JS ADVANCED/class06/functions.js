@@ -125,11 +125,12 @@ let names2 = names.map(name => name);
 let sortedNames = names.sort((a, b) => a.localeCompare(b));
 //this a > b calls localeCompare under the hood for string comparrison 
 let sortedNames2 = names.sort((a, b) => a > b ? 1 : -1);
-console.log(sortedNames);
-console.log(sortedNames2);
+// console.log(sortedNames);
+// console.log(sortedNames2);
 //reverse
-console.log(sortedNames.reverse());
-
+// console.log(sortedNames.reverse());
 //arrays are reference types, so when we sort them, we change the original array, and not create a new one.
+
+
 
 
