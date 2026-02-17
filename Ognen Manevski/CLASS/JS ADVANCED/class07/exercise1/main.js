@@ -30,7 +30,7 @@ function dataProcessing(data) {
     femaleStudent_Names_WithGrade_5(data);
     maleStudent_FullNames_inSkopje_and_over18(data);
     averageGrades_Female_over24(data);
-    maleStudents_NameStarts_B_AND_AverageGrade_abocve_2(data);
+    maleStudents_NameStarts_B_AND_AverageGrade_above_2(data);
 }
 
 /////////////////////////////////////////
@@ -75,10 +75,11 @@ function averageGrades_Female_over24(data) {
 }
 
 // All male students with a name starting with B and average grade over 2
-function maleStudents_NameStarts_B_AND_AverageGrade_abocve_2(data) {
+function maleStudents_NameStarts_B_AND_AverageGrade_above_2(data) {
     let arr = data.filter(student =>
         student.gender === "Male" &&
-        student.firstName.split("")[0] === "B" && 
+        // student.firstName.split("")[0] === "B" && 
+        student.firstName.startsWith("B") && 
         student.averageGrade > 2
     );
     console.log("All male students with a name starting with B and average grade over 2:", arr);
