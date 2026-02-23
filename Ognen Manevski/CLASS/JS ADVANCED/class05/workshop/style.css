@@ -1,8 +1,45 @@
-*{
+* {
+    text-wrap: pretty;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+h1 ~ p {
     text-wrap: balance;
 }
 
-.btn-ico{
+.btn-ico {
     padding: 0.4rem;
-    line-height: 1rem;
+    line-height: 0.9rem;
+    transform: translateY(0.15rem);
+    transition: 0.2s;
+}
+
+.btn:hover .btn-ico {
+    transform: translateY(0);
+}
+
+
+.btn .wiki-icon {
+    line-height: 0.5rem;
+    transform: translateY(0.45rem);
+    transition: 0.2s;
+    font-weight: 300;
+}
+
+.btn:hover .wiki-icon{
+    transform: translateY(0.45rem) translateX(0.5rem);
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+}
+
+.card {
+    background-color: aliceblue;
 }

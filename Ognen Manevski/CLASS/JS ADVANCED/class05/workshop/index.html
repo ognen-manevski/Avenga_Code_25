@@ -14,38 +14,63 @@
 
 <body>
 
-    <nav class="navbar bg-secondary border-bottom border-body mb-4">
+    <nav class="navbar navbar-dark bg-primary border-bottom border-body mb-4 px-1">
         <div class="container">
             <span class="navbar-brand mb-0 fs-4 fw-bold">COUNTRY.PEDIA</span>
         </div>
     </nav>
 
     <main class="container px-4">
-        <div class="row">
-            <div class=" col-12 text-center">
+
+        <div class="row border border-body rounded-3 my-4">
+
+            <div class="col-12 text-center mt-3">
                 <h1 class="fs-1 fw-bold">COUNTRY.PEDIA</h1>
                 <p>Search for countries and get information about them in real-time.</p>
             </div>
 
-            <div class="col-12 my-4 mx-auto" style="max-width: 600px;">
+            <div class="col-12 my-4 mx-auto" style="max-width: 1000px;">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for a country..."
-                        aria-label="Recipient’s username with two button addons">
-                    <button class="btn btn-primary" type="button">
+                    <input type="text" class="form-control rounded-3" placeholder="Search for a country..."
+                        id="searchInput">
+                    <button class="btn btn-primary ms-3 rounded-start-3" type="button" id="searchBtn">
                         <span class="material-symbols-outlined btn-ico fs-4">search</span>
                     </button>
-                    <button class="btn btn-outline-secondary" type="button">Reset</button>
+                    <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row border rounded-3 border-body pt-4">
+
+            <div class="col-12 container d-grid gap-2 d-md-flex">
+                <button class="btn btn-outline-secondary" id="allEU">All from Europe</button>
+                <button class="btn btn-outline-secondary" id="allNeighbors">All neighbors of Macedonia</button>
+                <button class="btn btn-outline-secondary" id="macedonia">Macedonia</button>
+            </div>
+
+            <div class="col-12 py-4">
+                <hr class="dropdown-divider border border-bottom-1 border-top-0">
+            </div>
+
+            <div class="d-flex justify-content-center pb-4 d-none" id="spinner">
+                <div class="spinner-border text-primary " role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
 
             <div class="col-12 container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
+                <div class="row" id="cardsContainer">
+                    <!-- cards start  -->
+                    <!-- <div class="col-sm-12 col-md-6 col-lg-4 pb-4">
                         <div class="card">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make
+                                    up
+                                    the
                                     bulk of the card’s content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -56,7 +81,9 @@
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make
+                                    up
+                                    the
                                     bulk of the card’s content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -67,18 +94,20 @@
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make
+                                    up
+                                    the
                                     bulk of the card’s content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+                    <!-- cards end  -->
 
 
-
-        </div>
+                </div>
     </main>
 
 
