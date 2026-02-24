@@ -59,7 +59,8 @@ let htmlEl = {
 // https://restcountries.com/v3.1/alpha/co
 // # Filter response fields
 // https://restcountries.com/v3.1/{service}?fields={field},{field},{field}
-const url = " https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region";
+
+const url = "https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region";
 
 function getData(url) {
     return fetch(url)
@@ -76,36 +77,7 @@ function getData(url) {
         });
 }
 
-function createCard(country) {
-    return `
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 pb-4">
-        <div class="card h-100">
-            <img src="${country.flags.png}"
-                class="card-img-top m-2 border border-body"
-                alt="${country.flags.alt}">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${country.name.common}</h5>
-                <p class="card-text">
-                    ${country.name.common} is a country with a population of <b>${formatPopulation(country.population)} citizens</b>
-                    and their capital is <b>${country.capital[0]}</b>.
-                </p>
-                <a href="https://en.wikipedia.org/wiki/${country.name.common}"
-                    class="btn btn-primary mt-auto" target="_blank">
-                    Open on Wikipedia
-                    <span class="material-symbols-outlined wiki-icon">
-                        arrow_right_alt
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>`;
-}
 
-function formatPopulation(num) {
-    return num.toString().split("").map(
-        (n, i) => (i % 3 === 0 && i !== 0) ? `,${n}` : n
-    ).join("");
-}
 
 // 3. implement a function to display/hide spinner
 function showSpinner(show) {
@@ -120,7 +92,59 @@ function showSpinner(show) {
 
 // 4. implement function that will display data in cards
 
+function createCard(country) {
+    return `
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 pb-4" >
+            <div class="card h-100 rounded-3">
+                <div class="d-flex">
+                    <img src="${country.flags.png}"
+                        class="card-img-top"
+                        alt="${country.flags.alt}">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">${country.name.common}</h5>
+                    <p class="card-text">
+                        ${country.name.common} is a country with a population of
+                        <b>${formatPopulation(country.population)} citizens</b>
+                        and ${formatCapitalsDisplay(country.capital)}.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/${country.name.common}"
+                        class="btn btn-primary mt-auto" target="_blank">
+                        Open on Wikipedia
+                        <span class="material-symbols-outlined wiki-icon">
+                            arrow_right_alt
+                        </span>
+                    </a>
+                </div>
+            </div>
+    </div > `;
+}
 
+// helper functions
+
+function formatPopulation(num) {
+    return num.toString().split("").map(
+        (n, i) => (i % 3 === 0 && i !== 0) ? `, ${n} ` : n
+    ).join("");
+}
+
+function formatCapitalsDisplay(cap) {
+    if (!cap) {
+        return "the country doesnt have a capital city";
+    } else if (cap.length === 1) {
+        return `their capital city is <b>${cap[0]}</b>`;
+    } else {
+        return `their capital cities are: ${multipleCapitals(cap)}`;
+    }
+}
+
+function multipleCapitals(cap) {
+    let capStr = cap.map((c, i) => {
+        if (i === cap.length - 1) return ` and <b>${c}</b>`;
+        return `<b>${c}</b>`;
+    }).join(", ");
+    return capStr;
+}
 
 // 5. function that will display data in table
 
@@ -139,8 +163,7 @@ function search(e) {
     console.log(value);
 }
 
-function getAllEU(e) {
-    e.preventDefault();
+function getAllEU() {
     reset();
     showSpinner(true);
     getData(url)
