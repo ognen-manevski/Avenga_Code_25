@@ -124,7 +124,7 @@ function createCard(country) {
 
 function formatPopulation(num) {
     return num.toString().split("").map(
-        (n, i) => (i % 3 === 0 && i !== 0) ? `, ${n} ` : n
+        (n, i) => (i % 3 === 0 && i !== 0) ? `.${n}` : n
     ).join("");
 }
 
@@ -175,7 +175,6 @@ function getAllEU() {
             showSpinner(false);
         });
 }
-
 
 
 htmlEl.searchBtn.addEventListener("click", search);
