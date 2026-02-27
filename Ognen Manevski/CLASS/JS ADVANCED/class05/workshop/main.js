@@ -30,11 +30,10 @@
 //----------------------------------------------------------------------
 
 //----------------------------------------------------------------------
-// #region 🧩 Code-Level Example Copilot Instructions (Paste in JS File as Comments)
+// #region 🧩 Implementation
 //----------------------------------------------------------------------
 
 // 1. select all the html elements needed
-
 let htmlEl = {
     //searchbar
     searchInput: document.getElementById("searchInput"),
@@ -48,19 +47,23 @@ let htmlEl = {
     spinner: document.getElementById("spinner"),
     //results
     cardsContainer: document.getElementById("cardsContainer"),
+    tableContainer: document.getElementById("tableContainer"),
+    tableBody: document.getElementById("tableBody"),
+    //display buttons
+    displayCardsBtn: document.getElementById("displayCards"),
+    displayTableBtn: document.getElementById("displayTable"),
+}
+
+// reset function
+function reset() {
+    htmlEl.cardsContainer.innerHTML = "";
+    htmlEl.searchInput.value = "";
+    htmlEl.tableBody.innerHTML = "";
 }
 
 // 2. implement functon to fetch data (provide fields what kind of data we need)
-// # Get all countries (filtered by fields)
-// https://restcountries.com/v3.1/all?fields=name,capital,currencies
-// # Get country by name
-// https://restcountries.com/v3.1/name/peru
-// # Get country by code
-// https://restcountries.com/v3.1/alpha/co
-// # Filter response fields
-// https://restcountries.com/v3.1/{service}?fields={field},{field},{field}
 
-const url = "https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region";
+const url = "https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region,borders,cca3";
 
 function getData(url) {
     return fetch(url)
@@ -77,8 +80,6 @@ function getData(url) {
         });
 }
 
-
-
 // 3. implement a function to display/hide spinner
 function showSpinner(show) {
     if (show) {
@@ -88,10 +89,8 @@ function showSpinner(show) {
     }
     // htmlEl.spinner.classList.toggle("d-none");
 }
-// showSpinner(true);
 
 // 4. implement function that will display data in cards
-
 function createCard(country) {
     return `
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 pb-4" >
@@ -121,7 +120,6 @@ function createCard(country) {
 }
 
 // helper functions
-
 function formatPopulation(num) {
     return num.toString().split("").map(
         (n, i) => (i % 3 === 0 && i !== 0) ? `.${n}` : n
@@ -140,29 +138,78 @@ function formatCapitalsDisplay(cap) {
 
 function multipleCapitals(cap) {
     let capStr = cap.map((c, i) => {
-        if (i === cap.length - 1) return ` and <b>${c}</b>`;
+        if (i === cap.length - 1 && i !== 0) return ` and <b>${c}</b>`;
         return `<b>${c}</b>`;
     }).join(", ");
     return capStr;
 }
 
 // 5. function that will display data in table
-
-
+function createTableRow(country) {
+    return `
+            <tr>
+                <td>
+                    <img src="${country.flags.png}" alt="${country.flags.alt}" class="flag-table">
+                </td>
+                <td>${country.name.common}</td>
+                <td>${formatPopulation(country.population)}</td>
+                <td>${multipleCapitals(country.capital)}</td>
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/${country.name.common}"
+                        class="btn btn-primary mt-auto" target="_blank">
+                        More
+                        <span class="material-symbols-outlined wiki-icon">
+                            arrow_right_alt
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            `;
+}
 
 // 6. implement 5 event listeners for the 5 btns
+htmlEl.searchBtn.addEventListener("click", search);
+htmlEl.searchInput.addEventListener("keypress", (e) => e.key === "Enter" ? search() : null);
+htmlEl.allEUBtn.addEventListener("click", getAllEU);
+htmlEl.resetBtn.addEventListener("click", reset);
+htmlEl.allNeighborsBtn.addEventListener("click", getNeighbors);
+htmlEl.macedoniaBtn.addEventListener("click", getMacedonia);
 
-function reset() {
-    htmlEl.cardsContainer.innerHTML = "";
-    htmlEl.searchInput.value = "";
+// 6.1 search, reset, all from europe, all neighbors of Macedonia, Macedonia
+
+// 6.1.1 search function
+function search() {
+    let url = createSearchUrl();
+    reset();
+    showSpinner(true);
+    if (!url) {
+        showSpinner(false);
+        return;
+    }
+    getData(url)
+        .then(countries => {
+            countries.forEach(country => {
+                htmlEl.cardsContainer.innerHTML += createCard(country);
+                htmlEl.tableBody.innerHTML += createTableRow(country);
+            });
+            showSpinner(false);
+        });
 }
 
-function search(e) {
-    e.preventDefault();
-    const value = htmlEl.searchInput.value;
-    console.log(value);
+//search helpers
+function createSearchUrl() {
+    const value = formatSearchValue(htmlEl.searchInput.value);
+    if (!value) {
+        return;
+    }
+    return `https://restcountries.com/v3.1/name/${value}?fields=name,capital,population,flags,region,borders`;
 }
 
+function formatSearchValue(value) {
+    return value.toLowerCase().trim().split(" ").join("%20");
+}
+
+// 6.1.2 get all countries from Europe
 function getAllEU() {
     reset();
     showSpinner(true);
@@ -171,58 +218,71 @@ function getAllEU() {
             let filteredC = countries.filter(c => c.region === "Europe");
             filteredC.forEach(country => {
                 htmlEl.cardsContainer.innerHTML += createCard(country);
+                htmlEl.tableBody.innerHTML += createTableRow(country);
             })
             showSpinner(false);
         });
 }
 
+// 6.1.3 get neighbors of Macedonia
+function getNeighbors() {
+    reset();
+    showSpinner(true);
+    getData(url)
+        .then(countries => {
+            let neighborsCodes = getMacedoniaNeighbors(countries);
+            let neighbors = getCountriesByCodes(countries, neighborsCodes);
+            neighbors.forEach(country => {
+                htmlEl.cardsContainer.innerHTML += createCard(country);
+                htmlEl.tableBody.innerHTML += createTableRow(country);
+            })
+            showSpinner(false);
+        });
+}
 
-htmlEl.searchBtn.addEventListener("click", search);
-htmlEl.resetBtn.addEventListener("click", reset);
+//helpers for get neighbors
+function getMacedoniaNeighbors(data) {
+    let macedonia = data.find(c => c.name.common === "North Macedonia");
+    return macedonia.borders;
+}
 
-htmlEl.allEUBtn.addEventListener("click", getAllEU);
+function getCountriesByCodes(data, codes) {
+    return data.filter(c => codes.includes(c.cca3));
+}
 
-htmlEl.allNeighborsBtn.addEventListener("click", () => console.log("neighbors"));
+// 6.1.4 Macedonia function
+function getMacedonia() {
+    reset();
+    showSpinner(true);
+    getData(url)
+        .then(countries => {
+            let filteredC = countries.filter(c => c.name.common === "North Macedonia");
+            filteredC.forEach(country => {
+                htmlEl.cardsContainer.innerHTML += createCard(country);
+                htmlEl.tableBody.innerHTML += createTableRow(country);
+            })
+            showSpinner(false);
+        });
+}
 
-htmlEl.macedoniaBtn.addEventListener("click", () => console.log("macedonia"));
-
-
-
-
-// 6.1 search, reset, all from europe, all neighbors of Macedonia, Macedonia
 // 7. implement constructior function with props only needed for the cards
 // (flag, name, population, capital, wiki link)
+// ^ ne mi treba
 
-
-//
-
-// Create a function that fetches countries based on search input
-// Create a function that renders country cards into the DOM
-// Add event listener for search button
-// Add event listener for 'Europe' button
-// Add event listener for 'Macedonia' button
-// Add event listener for 'Neighbors of Macedonia' button
 // Handle API errors and empty results gracefully
+// ^ done vo fetch
+
+// bonus: table/cards switcher
+function displaySwitcher(e) {
+    htmlEl.cardsContainer.classList.toggle("d-none");
+    htmlEl.tableContainer.classList.toggle("d-none");
+    htmlEl.displayCardsBtn.classList.toggle("btn-primary");
+    htmlEl.displayCardsBtn.classList.toggle("btn-outline-secondary");
+    htmlEl.displayTableBtn.classList.toggle("btn-primary");
+    htmlEl.displayTableBtn.classList.toggle("btn-outline-secondary");
+}
+htmlEl.displayCardsBtn.addEventListener("click", displaySwitcher);
+htmlEl.displayTableBtn.addEventListener("click", displaySwitcher);
 
 // #endregion
 //----------------------------------------------------------------------
-
-//----------------------------------------------------------------------
-// #region HTML
-//----------------------------------------------------------------------
-
-// card template
-/*<div class="col-sm-12 col-md-6 col-lg-4 pb-4">
-    <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Lorem Ipsum</p>
-                <a href="#" class="btn btn-primary">Wikipedia Link</a>
-            </div>
-    </div>*/
-
-// #endregion
-//----------------------------------------------------------------------
-
-

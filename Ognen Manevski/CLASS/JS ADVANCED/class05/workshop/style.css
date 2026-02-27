@@ -43,3 +43,12 @@ img {
 .card {
     background-color: aliceblue;
 }
+
+.flag-table{
+    width: 60px;
+}
+
+table tbody td,
+table thead th {
+    vertical-align: middle;
+}
