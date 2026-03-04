@@ -19,7 +19,8 @@ wheeledVehicle.drive = function() {
 // console.log(wheeledVehicle);
 
 let car = Object.create(wheeledVehicle);
-//what does this do? ^ It creates a new object (car) that inherits from the wheeledVehicle object. This means that car will have access to all properties and methods of wheeledVehicle, as well as any properties and methods defined on the Vehicle prototype.
+//what does this do? ^ It creates a new object (car) that inherits from the wheeledVehicle object.
+// This means that car will have access to all properties and methods of wheeledVehicle, as well as any properties and methods defined on the Vehicle prototype.
 car.fuelTankCapacity = 50;
 // car.drive();
 // car.printVehicle();
