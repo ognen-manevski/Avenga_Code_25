@@ -1,0 +1,2 @@
+I want this text to be in the file
+New line added
