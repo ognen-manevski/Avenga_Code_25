@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Class01.MyFirstConsoleApp/Class01.MyFirstConsoleApp.csproj" />
+  <Project Path="MySecondConsoleApp/Class01.MySecondConsoleApp.csproj" Id="8396d919-0e79-40e5-b6a5-eeb2af989091" />
+</Solution>
