@@ -7,8 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Homework02.Utilities\Homework02.Utilities.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Homework02.Utilities\Homework02.Utilities.csproj" />
+	</ItemGroup>
 
 </Project>

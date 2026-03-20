@@ -1,56 +1,5 @@
-﻿//=====================================================
-#region Helper Methods:
-//=====================================================
-
-// get and validate user numeric input
-//short? means the method can accept a short value or null (if no min/max is provided)
-static short GetNumInput(string promptText, short? min = null, short? max = null)
-{
-    while (true) // loop until return
-    {
-        Console.WriteLine(promptText);
-        bool isValid = short.TryParse(Console.ReadLine(), out short result);
-
-        if (!isValid)
-        {
-            PrintError("That isn't a valid number. Please try again.");
-            continue; //restart loop
-        }
-
-        // if minmax values are provided:
-        if (
-            (min != null && result < min) ||
-            (max != null && result > max)
-            )
-        {
-            PrintError($"Please enter a number between {min} and {max}");
-            continue;
-        }
-
-        return result;
-    }
-}
-
-//change error color to red
-static void PrintError(string err)
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine(err);
-    Console.ResetColor();
-}
-
-//change highlight color to cyan
-static void HighlightColor(string txt)
-{
-    Console.ForegroundColor = ConsoleColor.Cyan;
-    Console.Write(txt);
-    Console.ResetColor();
-}
-
-
-#endregion
-//=====================================================
-
+﻿using Homework02.Utilities;
+//get the helper methods in scope
 
 //=====================================================
 #region EXERCISE 4
@@ -71,13 +20,13 @@ static void Exercise4()
     short basketSize = 5;
     short numberOfBranches = 12;
 
-    short numOfTrees = GetNumInput("How many trees do you have?"); //helper method
+    double numOfTrees = Utilities.GetNumInput("How many trees do you have?"); //helper method
 
     double applesTotal = numOfTrees * numberOfBranches * applesOnBranch;
     double basketsNeeded = Math.Ceiling(applesTotal / basketSize);
 
     Console.Write("You will need ");
-    HighlightColor(basketsNeeded.ToString());
+    Utilities.HighlightColor(basketsNeeded.ToString());
     Console.WriteLine(" baskets");
 }
 
@@ -103,16 +52,16 @@ static void Exercise5()
 {
     Console.WriteLine("\n=== EXERCISE 5: Compare Two Numbers ===");
 
-    short num1 = GetNumInput("Enter the first number:");
-    short num2 = GetNumInput("Enter the second number:");
+    double num1 = Utilities.GetNumInput("Enter the first number:");
+    double num2 = Utilities.GetNumInput("Enter the second number:");
 
-    short larger = num1 > num2 ? num1 : num2;
+    double larger = num1 > num2 ? num1 : num2;
     string evenOrOdd = larger % 2 == 0 ? "even" : "odd";
 
     Console.Write("The larger number from the two is ");
-    HighlightColor(larger.ToString());
+    Utilities.HighlightColor(larger.ToString());
     Console.Write("\nAnd the number is ");
-    HighlightColor(evenOrOdd);
+    Utilities.HighlightColor(evenOrOdd);
     Console.WriteLine(".");
 }
 
@@ -137,23 +86,24 @@ static void Exercise6()
 {
     Console.WriteLine("\n=== EXERCISE 6: Prize Selection ===");
 
-    short pick1to3 = GetNumInput("Pick a number from 1 to 3:", 1, 3);
+    double pick1to3 = Utilities.GetNumInput("Pick a number from 1 to 3:", 1, 3);
+    pick1to3 = Math.Round(pick1to3); //must be a whole number
 
     switch (pick1to3)
     {
         case 1:
             Console.Write("You got a new ");
-            HighlightColor("car");
+            Utilities.HighlightColor("car");
             Console.WriteLine("!");
             break;
         case 2:
             Console.Write("You got a new ");
-            HighlightColor("plane");
+            Utilities.HighlightColor("plane");
             Console.WriteLine("!");
             break;
         case 3:
             Console.Write("You got a new ");
-            HighlightColor("bike");
+            Utilities.HighlightColor("bike");
             Console.WriteLine("!");
             break;
     }
@@ -185,7 +135,7 @@ while (continueRunning)
     +============================================+
     ");
 
-    short input = GetNumInput("Enter your choice:", 0, 3);
+    double input = Utilities.GetNumInput("Enter your choice:", 0, 3);
 
     switch (input)
     {

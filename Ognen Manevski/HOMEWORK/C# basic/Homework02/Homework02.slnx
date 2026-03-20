@@ -1,3 +1,7 @@
 <Solution>
+  <Project Path="AverageNumber/Homework02.AverageNumber.csproj" Id="05823df2-be6a-4993-8df9-e7d3658e639b" />
   <Project Path="Homework02.Homework/Homework02.Homework.csproj" />
+  <Project Path="Homework02.Task1-Real-Calculator/Homework02.RealCalculator.csproj" Id="b6e30ec2-fd71-4133-921e-6a5a542a9dfb" />
+  <Project Path="Homework02.Utilities/Homework02.Utilities.csproj" Id="e409fcb6-7869-4e77-807b-d246fd293b01" />
+  <Project Path="SwapNumbers/Homework02.SwapNumbers.csproj" Id="44ca16df-9a72-426d-9717-40b68869f0cd" />
 </Solution>
