@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Class04.Class/Class04.Methods.csproj" />
+  <Project Path="Class04.DateTime/Class04.DateTime.csproj" />
+  <Project Path="Class04.Strings/Class04.Strings.csproj" />
+</Solution>
