@@ -66,13 +66,14 @@ Console.WriteLine(myStringNumber); //12,345.68
 string cardNumber = string.Format("{0:####-####-####-####}", 1111222233334444);
 //{0:####-####-####-####} is a custom format string
 // with groups of four digits separated by hyphens.
-Console.WriteLine(cardNumber);
+Console.WriteLine(cardNumber); //1111-2222-3333-4444
 
 string phoneNumber = string.Format("{0:0##/###-###}", 070222333); //number cant start with 0 so we add the 0 in the template
 Console.WriteLine(phoneNumber); //070/222-333
 
 string myCustomAlignedString1 = string.Format("| {0,10} | {1, 18} |", "id", "Order");
 //{0,10} means that the first argument (id) will be right-aligned in a field of 10 characters
+//{0,-10} means that the first argument (id) will be left-aligned in a field of 10 characters
 string myCustomAlignedString2 = string.Format("| {0,10} | {1, 18} |", "25", "Samsung Galaxy S25");
 
 Console.WriteLine(myCustomAlignedString1);
@@ -89,6 +90,8 @@ string msg11 = "     We are learning C# and it is FUN and EASY. Okay maybe just 
 Console.WriteLine(msg11.Length);
 //removes leading and trailing whitespace characters from the string
 Console.WriteLine(msg11.Trim().Length);
+//original length: 77
+//result: 68, all of the leading and trailing spaces are removed
 
 string lower = msg11.ToLower(); //converts the string to lowercase
 string upper = msg11.ToUpper(); //converts the string to uppercase

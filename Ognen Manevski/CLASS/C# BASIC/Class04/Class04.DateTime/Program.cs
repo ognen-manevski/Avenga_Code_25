@@ -10,7 +10,7 @@ Console.WriteLine(date);
 
 //custom date
 
-DateTime customDate = new DateTime(1999, 08, 27, 12, 0, 12);
+DateTime customDate = new DateTime(1999, 08, 27, 12, 0, 12); //year, month, day, hour, minute, second
 Console.WriteLine(customDate);
 
 //converting from string to date

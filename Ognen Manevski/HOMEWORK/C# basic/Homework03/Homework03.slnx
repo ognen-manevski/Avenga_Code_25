@@ -1,4 +1,7 @@
 <Solution>
-  <Project Path="Homework03.Task1/Homework03.Exercises.csproj" />
-  <Project Path="Utilities/Homework03.Utilities.csproj" />
+  <Project Path="Homework03.Exercises/Homework03.Exercises.csproj" />
+  <Project Path="Homework03.StudentGroup/Homework03.StudentGroup.csproj" />
+  <Project Path="Homework03.SumOfEven/Homework03.SumOfEven.csproj" />
+  <Project Path="Homework03.Task1/Homework03.Task1.csproj" />
+  <Project Path="Homework03.Utilities/Homework03.Utilities.csproj" />
 </Solution>
