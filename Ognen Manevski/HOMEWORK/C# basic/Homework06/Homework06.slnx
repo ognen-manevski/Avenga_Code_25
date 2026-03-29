@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Homework06.ClassExercise01-refactored/Homework06.ClassExercise01_Refactored.csproj" />
+  <Project Path="Homework06.ClassExercise02-Refactored/Homework06.ClassExercise02_Refactored.csproj" Id="2ee60df7-2fee-490f-a063-4cc0611085e9" />
+  <Project Path="Homework06.Exercise03_ATM_Application/Homework06.Exercise03_ATM_Application.csproj" Id="c90bc1fd-aab4-49a6-b24a-56ee9923d798" />
+  <Project Path="Homework06.Utilities/Homework06.Utilities.csproj" Id="8b51e8fe-adbe-400c-9831-fddcc68e0952" />
+</Solution>

@@ -13,7 +13,7 @@ internal class Dog
         Name = name;
         Race = race;
         Color = color;
-    }
+    }   
 
 
     public void Eat()
