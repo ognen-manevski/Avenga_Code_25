@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Class07.Enums/Class07.Enums.csproj" Id="706805b6-750b-4b22-8f9a-51d01d7898ac" />
+  <Project Path="Class07.Inheritance/Class07.Inheritance.csproj" />
+  <Project Path="Class07.Operations/Class07.Operations.csproj" Id="a66860e4-b6c0-4496-b67a-7d36af08787b" />
+  <Project Path="Class07.Utils/Class07.MathLibrary.csproj" Id="68727490-ae95-4a75-a3b7-f52d54605bb7" />
+</Solution>
