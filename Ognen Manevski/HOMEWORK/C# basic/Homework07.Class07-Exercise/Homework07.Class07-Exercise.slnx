@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="Homework07.Class07-Exercise/Homework07.Class07-Exercise.csproj" />
+  <Project Path="Homework07.Class07-Exercise/Homework07.Exercise01.csproj" />
+  <Project Path="Homework07.Library/Homework07.Library.csproj" />
 </Solution>
