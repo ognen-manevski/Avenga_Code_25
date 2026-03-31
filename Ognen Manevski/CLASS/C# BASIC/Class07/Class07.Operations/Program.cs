@@ -13,3 +13,4 @@ Console.WriteLine(@$"
 ");
 
 
+//Console.WriteLine(MathOperations.Divide(num2, 0));
