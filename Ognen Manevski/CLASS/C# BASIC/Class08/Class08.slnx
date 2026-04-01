@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Class08.Collections/Class08.Collections.csproj" />
+  <Project Path="Class08.Exercise01-PhoneBook/Class08.Exercise01-PhoneBook.csproj" />
+  <Project Path="Class08.Linq/Class08.Linq.csproj" />
+</Solution>
