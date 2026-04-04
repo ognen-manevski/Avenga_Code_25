@@ -58,7 +58,9 @@ var customSelection = students
         FullName = $"{x.Fname} {x.Lname}",
         Academy = x.Academy,
         Subjects = x.Subjects
-    })
+    }) //what is this? -> creates a new anonimous object with the properties FullName, Academy and Subjects for each student named Bob
+    //this works only with select?
+    //select can be used to create a new object with only the properties we want, or to transform the data in some way, while where is used to filter the collection based on a condition
     .FirstOrDefault(); //picks the first anonimous object (a?) created for a student named Bob
 
 //FirstOrDefault -> if there is no student named "NonExistent", it will return null instead of throwing an exception

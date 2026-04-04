@@ -1,0 +1,24 @@
+﻿<div class="person-card">
+    
+    <h2>@Person.Fname @Person.Lname</h2>
+    <p>Age: <span class="num">@Person.Age</span></p>
+
+    @if (Person.FavSongs.Any())
+    {
+        <p>Favorite Music Genre: <span class="pill">@Person.FavMusicType</span></p>
+        <SongList Songs="@Person.FavSongs" />
+    }
+    else
+    {
+        <div>
+            This person hates music.
+        </div>
+    }
+</div>
+
+@code {
+    //person init
+    [Parameter]
+    public Person Person { get; set; } = null!;
+}
+

@@ -1,0 +1,22 @@
+﻿<ul class="song-list">
+    <li class="li-head">
+        <div>Title</div>
+        <div>Length</div>
+        <div>Genre</div>
+    </li>
+
+    @foreach (var song in Songs)
+    {
+        <li>
+            <div>@song.Title</div>
+            <div class="num">@Person.FormatSeconds(song.Length)</div>
+            <div><span class="pill">@song.Genre</span></div>
+        </li>
+    }
+</ul>
+
+@code {
+    //passing down the songs list from the PersonCard component
+    [Parameter]
+    public List<Song> Songs { get; set; } = new();
+}

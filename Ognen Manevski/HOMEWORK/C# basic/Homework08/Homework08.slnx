@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Homework08.BlazorApp/Homework08.BlazorApp.csproj" Id="50323179-6b41-4630-afe2-97e9da80f6e7" />
+  <Project Path="Homework08.FavouriteSongs/Homework08.FavouriteSongs.csproj" />
+  <Project Path="Homework08.Utilities/Homework08.Libraries.csproj" />
+</Solution>

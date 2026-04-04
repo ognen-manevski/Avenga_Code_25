@@ -1,0 +1,268 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+@rendermode InteractiveServer
+
+<PageTitle>People & Their Favourite Songs</PageTitle>
+
+<div class="container">
+
+    @* ============= HERO BANNER ================= *@
+    <div class="hero-banner">
+
+        <h1>People & Their Favourite Songs</h1>
+
+        <div class="hero-overlay"></div>
+
+        <div class="forms-section">
+
+            @* ---------- Form 1: Add Person ----------  *@
+            <div class="form-card">
+                <h3>Add New Person</h3>
+
+                @* use newPerson ctor for form *@
+                @* and initiate it on submit *@
+                <EditForm Model="newPerson" OnValidSubmit="AddPerson">
+
+                    @* for required text*@
+                    <DataAnnotationsValidator />
+
+                    <div class="form-group">
+                        <label>First Name <span class="required">*</span></label>
+                        @* sync newPerson.Fname with value *@
+                        <InputText @bind-Value="newPerson.Fname" class="form-control" />
+                        <ValidationMessage For="@(() => newPerson.Fname)" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        @* sync newPerson.Lname with value *@
+                        <InputText @bind-Value="newPerson.Lname" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age:</label>
+                        @* sync newPerson.Age with value *@
+                        <InputNumber @bind-Value="newPerson.Age" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Person</button>
+                </EditForm>
+
+            </div>
+
+            @*  ---------- Form 2: Add Song to Person ----------  *@
+            <div class="form-card">
+
+                <h3>Add Song to Person</h3>
+
+                <div class="form-group">
+
+                    @* sync personID with selected value *@
+                    <select @bind="personID" class="form-control">
+
+                        <option value="0">-- Select Person --</option>
+
+                        @foreach (var person in dataLists.personsList)
+                        {
+                            <option value="@person.Id">@person.Fname @person.Lname</option>
+                        }
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+
+                    @* sync selectedSongTitle with selected value *@
+                    @* disabled if no person is selected (bool) *@
+                    <select @bind="selectedSongTitle" class="form-control" disabled="@(personID == 0)">
+
+                        <option value="">-- Select Song --</option>
+
+                        @foreach (var song in GetAvailableSongs())
+                        {
+                            <option value="@song.Title">@song.Title | @song.Genre | @Person.FormatSeconds(song.Length)</option>
+                        }
+
+                    </select>
+                </div>
+
+
+                @*disabled if person is not selected (bool) *@
+                <button @onclick="AddSongToPerson" class="btn btn-primary"
+                        disabled="@(personID == 0 || string.IsNullOrEmpty(selectedSongTitle))">
+                    Add Song
+                </button>
+
+            </div>
+
+            
+        </div>
+
+        <div class="forms-section search-section">
+
+            @*  ---------- Search Bar ----------  *@
+            <div class="form-card search-card">
+
+                <h3>Search People</h3>
+
+                <div class="search-filters">
+
+                    <div class="form-group">
+
+                        @*
+                            @bind syncs searchTerm and the input field value
+                            @bind:event = update sync on input event
+                        *@
+                        <input type="text" @bind="searchQuery" @bind:event="oninput"
+                               class="form-control" placeholder="Type to search..." />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    @* ============= MAIN CONTENT / CARDS ================= *@
+
+    <div class="content-section">
+        @if (FilteredPeople.Any())
+        {
+            <div class="person-cards-grid">
+                @foreach (var person in FilteredPeople)
+                {
+                    <PersonCard Person="@person" />
+                }
+            </div>
+        }
+        else
+        {
+            <div class="no-results">
+                <p>No people found matching your search.</p>
+            </div>
+        }
+    </div>
+</div>
+
+@* ============= MARKUP END ================= *@
+
+
+@code {
+
+    //init public - for all components
+    public DataLists dataLists = new DataLists();
+    public Person newPerson = new Person("", "", 0, null); //default ctor for forms
+
+    //data binding for forms
+    private int personID = 0;
+    private string selectedSongTitle = "";
+    private string searchQuery = "";
+    private string filterGenre = "";
+    private int? minDuration = null;
+    private int? maxDuration = null;
+
+
+    //new data list for cards
+
+    private List<Person> FilteredPeople
+    {
+        //recompute on access based on search criteria
+        get
+        {
+            List<Person> filtered = dataLists.personsList.AsEnumerable().ToList(); //to allow LINQ methods on the list
+
+            //filter by fname + lname
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                var search = searchQuery.Trim().ToLower();
+
+                filtered = dataLists.FindPersons(search);
+            }
+           
+            return filtered;
+        }
+    }
+
+    private void AddPerson()
+    {
+        if (string.IsNullOrWhiteSpace(newPerson.Fname))
+        {
+            return;
+        }
+
+        // var nextId = dataLists.personsList.Any() ? dataLists.personsList.Max(p => p.Id) + 1 : 1;
+
+        var person = new Person(
+            fName: newPerson.Fname.Trim(),
+            lName: newPerson.Lname?.Trim() ?? "", // Safe default
+            age: newPerson.Age, //if age in form is null, default to 0
+            favSongs: new List<Song>() //no songs yet
+        );
+
+        dataLists.personsList.Add(person);
+
+        // Reset form
+        newPerson = new Person("", "", 0, null);
+    }
+
+    private void AddSongToPerson()
+    {
+        if (personID == 0 || string.IsNullOrEmpty(selectedSongTitle))
+        {
+            return;
+        }
+
+        var person = dataLists.personsList.FirstOrDefault(p => p.Id == personID);
+        var song = dataLists.songsList.FirstOrDefault(s => s.Title == selectedSongTitle);
+
+        if (person != null && song != null && !person.FavSongs.Contains(song))
+        {
+            person.FavSongs.Add(song);
+            person.UpdateFavMusicType();
+
+            // Reset selections
+            selectedSongTitle = "";
+        }
+    }
+
+    private void DeletePerson(Person person)
+    {
+        dataLists.personsList.Remove(person);
+    }
+
+    private List<Song> GetAvailableSongs()
+    {
+        if (personID == 0)
+        {
+            return new List<Song>();
+        }
+
+        var person = dataLists.personsList.FirstOrDefault(p => p.Id == personID);
+        if (person == null)
+        {
+            return new List<Song>();
+        }
+
+        return dataLists.songsList
+            .Where(s => !person.FavSongs.Any(fs => fs.Title == s.Title))
+            .ToList();
+    }
+
+    // private string FormatSeconds(int sec)
+    // {
+    //     return $"{sec / 60}:{(sec % 60):D2}";
+    // }
+
+    private void ClearFilters()
+    {
+        searchQuery = "";
+        filterGenre = "";
+        minDuration = null;
+        maxDuration = null;
+    }
+
+
+
+}

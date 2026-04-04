@@ -1,0 +1,209 @@
+
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+    line-height: 1;
+    font-size: calc(5vw);
+}
+
+/* Hero Banner */
+
+.hero-overlay {
+    /*    background: black;*/
+    opacity: 1;
+    backdrop-filter: blur(16px);
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.hero-banner {
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/imgs/music.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    padding: 4rem;
+    padding-top: 0;
+    margin-bottom: 3rem;
+}
+
+.forms-section {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-card {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255,255,255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+    .form-card h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+.search-card {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    /*    width: 100%;*/
+}
+
+.search-section {
+    margin-top: 1.5rem;
+}
+
+/*.search-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    align-items: end;
+}*/
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        /*    color: #555;*/
+    }
+
+
+.required {
+    color: #e74c3c;
+}
+
+.form-control,
+input[type="text"],
+input[type="number"],
+input,
+select,
+form.input *{
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+    }
+
+    .form-control:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+    }
+
+select option {
+    background: white;
+    color: #333;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    line-height: 1.5;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+    .btn-primary:hover:not(:disabled) {
+        background: var(--secondary);
+    }
+
+.btn-secondary {
+    background: lightgrey;
+    color: white;
+}
+
+    .btn-secondary:hover:not(:disabled) {
+        background: #5a6268;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+    }
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Content Section */
+.content-section {
+    margin-top: 2rem;
+}
+
+.person-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+/* Validation */
+.validation-message {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .forms-section {
+        grid-template-columns: 1fr;
+    }
+
+    .person-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

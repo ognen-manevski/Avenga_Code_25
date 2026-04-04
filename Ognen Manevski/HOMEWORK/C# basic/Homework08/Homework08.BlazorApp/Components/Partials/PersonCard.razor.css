@@ -1,0 +1,30 @@
+.person-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.person-card h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.person-card p {
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+
+.no-songs {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--secondary);
+    border-radius: 8px;
+    color: var(--background-color);
+    font-style: italic;
+    text-align: center;
+}
