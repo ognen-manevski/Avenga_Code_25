@@ -1,6 +1,5 @@
 ﻿
 using Class09.ErrorHandling.Models;
-using System.Reflection.PortableExecutable;
 
 Console.WriteLine("  ------------ Example 1  ------------ ");
 //handling .net exception
