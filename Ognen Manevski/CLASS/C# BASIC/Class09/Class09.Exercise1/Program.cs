@@ -56,12 +56,7 @@ List<Movie> movies = new List<Movie>() {
 //init cinemas
 List<Cinema> cinemas = new List<Cinema>() {
     new Cinema( "Cinema City", 5, new List<Movie>{ movies[0], movies[1], movies[2], movies[3] }),
-    new Cinema( "Cineplex", 3, new List<Movie>{ movies[4], movies[5], movies[6] }),
-    new Cinema( "IMAX", 4, new List<Movie>{ movies[7], movies[8], movies[9], movies[10] }),
-    new Cinema( "Grand Cinema", 6, new List<Movie>{ movies[11], movies[12], movies[13], movies[14], movies[15], movies[16] }),
-    new Cinema( "Movie Palace", 2, new List<Movie>{ movies[17], movies[18] }),
-    new Cinema( "Film House", 4, new List<Movie>{ movies[19], movies[0], movies[1], movies[2] }),
-    new Cinema( "Silver Screen", 5, new List<Movie>{ movies[3], movies[4], movies[5], movies[6], movies[7] }),
+    new Cinema( "Cineplex", 3, new List<Movie>{ movies[4], movies[5], movies[6] })
 };
 
 
