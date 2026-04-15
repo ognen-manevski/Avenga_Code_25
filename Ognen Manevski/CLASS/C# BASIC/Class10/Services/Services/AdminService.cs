@@ -1,9 +1,9 @@
-﻿namespace AcademyManagement.Services.Services;
-
+﻿
 using AcademyManagement.Domain;
-using AcademyManagement.Domain.Models;
 using AcademyManagement.Domain.Enums;
+using AcademyManagement.Domain.Models;
 
+namespace AcademyManagement.Services.Services;
 public class AdminService
 {
 
@@ -35,8 +35,8 @@ public class AdminService
     public void CreateUser(string firstName, string lastName, string username, string password, string age, Role role)
     {
         bool userExists = _dataAccess.CheckIfUserExists(username, role);
-        if (userExists)
 
+        if (userExists)
         {
             throw new Exception($@" {role.ToString()} with {username} Already Exists");
         }

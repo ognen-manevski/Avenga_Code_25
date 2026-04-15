@@ -1,6 +1,5 @@
 ﻿
 namespace AcademyManagement.Domain.Models;
-
 using AcademyManagement.Domain.Enums;
 
 public class Trainer : User

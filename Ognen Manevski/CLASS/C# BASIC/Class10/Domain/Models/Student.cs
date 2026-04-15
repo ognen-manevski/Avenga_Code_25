@@ -4,7 +4,6 @@ using AcademyManagement.Domain.Enums;
 
 public class Student : User
 {
-
     public string CurrentSubject { get; set; }
     public Dictionary<string, int> Grades { get; set; } = new Dictionary<string, int>();
 
