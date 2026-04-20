@@ -250,3 +250,5 @@ right join Customers as c
 on o.CustomerId = c.Id
 where o.Id is null;
 
+--------------- Class 03 --------------------------
+

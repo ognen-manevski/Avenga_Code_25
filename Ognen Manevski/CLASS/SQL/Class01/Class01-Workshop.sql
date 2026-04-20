@@ -69,10 +69,18 @@ create table OrderDetails (
 	[Id] int IDENTITY (1,1) not null,
 	[OrderId] bigint null, --foreign key to Orders table
 	[ProductId] int null, --foreign key to Products table
+	[EmployeeId] int null, --foreign key to Employees table (the employee who processed the order)
 	[Quantity] int null,
 	[Price] decimal (18,2) null,
 constraint [PK_OrderDetail] primary key (Id)
 )
+
+alter table OrderDetails
+add
+[EmployeeId] int null; --adding the EmployeeId column to OrderDetails table after it has been created;
+
+
+--------------comments:-------------------------
 
 --what is identity in the tables and what is primary key/constraint?
 --Identity is a property of a column that automatically generates a unique value for each new row inserted into the table.
@@ -107,3 +115,107 @@ constraint [PK_BusinessEntity] primary key (Id)
 )
 
 GO
+
+--------------- Class 03 -------------------
+
+insert into [Orders] (OrderDate, [Status], BusinessEntityId, CustomerId, EmployeeId, TotalPrice, Comment)
+values ( (select '2019-04-05'), 0, 100, 1, 1, 1000, 'TestComent' );
+
+delete from Orders where BusinessEntityId = 100;
+
+select * from Orders
+
+
+-- create FK constraint
+
+alter table [OrderDetails]
+add
+constraint [FK_OrderDetails_Orders] foreign key (OrderId) references Orders(Id),
+constraint [FK_OrderDetails_Product] foreign key (ProductId) references Products(Id),
+constraint [FK_OrderDetails_Employee] foreign key (EmployeeId) references Employees(Id);
+
+
+alter table [Orders]
+add
+constraint [FK_Orders_BusinessEntities] foreign key (BusinessEntityId) references BusinessEntities(Id),
+constraint [FK_Orders_Customers] foreign key (CustomerId) references Customers(Id),
+constraint [FK_Orders_Employees] foreign key (EmployeeId) references Employees(Id);
+
+
+select * from BusinessEntities;
+
+-- sql joins
+
+use [master]
+go
+
+create database [DemoJoinDB]
+go
+
+use [DemoJoinDb]
+go
+
+create table TableA (IdA int)
+
+create table TableB (IdB int)
+
+insert into TableA (IdA)
+values (1), (2), (3);
+
+insert into TableB (IdB)
+values (2), (3), (4);
+
+select * from TableA
+left join TableB 
+on IdA = IdB;
+
+select * from TableA
+right join TableB
+on IdA = IdB;
+
+select * from TableA
+cross join TableB;
+
+select * from TableA
+inner join TableB
+on IdA = IdB;
+
+select * from TableA
+right join TableB
+on IdA = IdB
+where IdA is null;
+
+select * from TableA
+full outer join TableB
+on IdA = IdB;
+
+select * from TableA
+full outer join TableB
+on IdA = IdB
+where IdA is null or IdB is null;
+
+
+select * from TableA
+cross join TableB
+order by IdA, IdB;
+
+--
+
+use SEDC
+go
+
+select * from Orders o
+left join BusinessEntities be
+on o.BusinessEntityId = be.Id;
+
+
+select * from Orders o
+right join BusinessEntities be
+on o.BusinessEntityId = be.Id;
+
+--
+
+select be.[Name], be.[Size], o.[TotalPrice], o.OrderDate
+from BusinessEntities as be
+inner join Orders as o
+on be.Id = o.BusinessEntityId;
