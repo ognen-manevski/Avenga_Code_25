@@ -12,8 +12,8 @@ GO
 --DROP DATABASE IF EXISTS [TestDB]
 --GO
 
---CREATE DATABASE [TestDB]
---GO
+CREATE DATABASE [TestDB]
+GO
 
 USE [TestDB]
 GO
@@ -28,7 +28,10 @@ CREATE TABLE [Customer]
 	CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED ([Id] ASC) -- setting Id as primary key for the customer table
 )
 GO
-
+--IDENTITY(1,1) - auto increment
+--CONSTRAINT - limit rule, default - no duplicates
+--PRIMARY KEY - unique identifier
+--CLUSTERED - ordering of the data // ASC - ascending order
 
 
 --INSERT
@@ -82,6 +85,7 @@ alter table Customer
 add [Phone] nvarchar(20) NULL
 
 
-update Customer set [Phone] = '02/123-456'
+update Customer
+set [Phone] = '02/123-456'
 where [Name] = 'Vero Taftalidze'
 select * from Customer

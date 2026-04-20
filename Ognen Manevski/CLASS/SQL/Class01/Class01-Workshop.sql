@@ -71,7 +71,7 @@ create table OrderDetails (
 	[ProductId] int null, --foreign key to Products table
 	[Quantity] int null,
 	[Price] decimal (18,2) null,
-constraint[PK_OrderDetail] primary key (Id)
+constraint [PK_OrderDetail] primary key (Id)
 )
 
 --what is identity in the tables and what is primary key/constraint?
