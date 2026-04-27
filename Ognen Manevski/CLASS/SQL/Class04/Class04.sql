@@ -109,4 +109,44 @@ go
 select dbo.fn_EmployeeFullName(10) as EmployeeFullName
 
 
+----------- Temp Tables and Table Variables --------------
 
+declare @FemaleEmployeeList table (
+EmployeeId int not null,
+FirstName nvarchar(50) null,
+LastName nvarchar(50) null
+);
+
+
+insert into @FemaleEmployeeList (EmployeeId, FirstName, LastName)
+values(101, 'Ana', 'Nikolova'),
+       (102, 'Aleksandra', 'Petrovska'),
+       (103, 'Elena', 'Stojanovska')
+select * from @FemaleEmployeeList
+go
+
+select * from Employses where Gender = 'F'
+go
+
+insert into @FemaleEmployeeList (EmployeeId, FirstName, LastName)
+select Id, firstName, LastName
+from Employees
+where Gender = 'F'
+
+select * from @FemaleEmployeeList
+go
+
+------ temp table -------------
+
+create table #MaleEmployeeTempTable (
+EployeeId int not null,,
+LastName nvarchar(50) null,
+FirstName nvarchar(50) null
+)
+go
+
+
+insert into #MaleEmployeeTempTable (EployeeId, LastName, FirstName)
+selest Id, LastName, FirstName
+from Employees
+where Gender ='M'
