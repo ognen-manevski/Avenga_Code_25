@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Homework02.Task01_Searchable/Homework02.Task01_Searchable.csproj" Id="48d4122b-0475-467d-ac9b-88c207a0c4d9" />
+  <Project Path="Homework02.Task02_ShapeInterface/Homework02.Task02_ShapeInterface.csproj" Id="6ccf3d08-951b-4db0-a080-5448ddb82708" />
+  <Project Path="Homework02.Task03_Shape_Abstract_Class/Homework02.Task03_Shape_Abstract_Class.csproj" Id="ea6cc23a-0f16-48ff-8d2b-d2e2ae33a250" />
+  <Project Path="Homework02.Task04_Employee_Abstract/Homework02.Task04_Employee_Abstract.csproj" Id="33ce03df-b7f8-48ff-9471-f36a6c35c2cd" />
+</Solution>
