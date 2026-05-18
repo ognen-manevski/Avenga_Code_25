@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="TaxiManager5000.App/TaxiManager5000.App.csproj" />
+  <Project Path="TaxiManager5000.Domain/TaxiManager5000.Domain.csproj" />
+  <Project Path="TaxiManager9000.DataAccess/TaxiManager9000.DataAccess.csproj" />
+  <Project Path="TaxiManager9000.Services/TaxiManager9000.Services.csproj" />
+</Solution>
