@@ -21,7 +21,8 @@ In Program.cs, create one of each and call DisplayInfo() on them.
 
 
 //Task #3 - Shape abstract class
-namespace Homework02.Task04_Employee_Abstract.Models;
+
+using Homework02.Task03_Shape_Abstract_Class.Models;
 
 Rectangle rectangle = new Rectangle { Width = 5, Height = 10 };
 rectangle.DisplayInfo();
