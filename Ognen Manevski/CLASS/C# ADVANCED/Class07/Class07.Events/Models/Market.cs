@@ -1,4 +1,5 @@
 ﻿using Class07.Events.Enums;
+using System.Globalization;
 
 namespace Class07.Events.Models;
 
@@ -36,5 +37,19 @@ public class Market
         OnPromotionSent(ProductTypeOnPromotion);
         //OnPromotionSent?.Invoke(ProductTypeOnPromotion);     
     }
+
+
+    public void UnsubscribeFromPromotion(
+        PromotionHandler handler,
+        string email,
+        string reason)
+    {
+        OnPromotionSent -= handler;
+        SubscriberEmails.Remove(email);
+        UnsubscribeReasons.Add(reason);
+
+    }
+
+
 
 }

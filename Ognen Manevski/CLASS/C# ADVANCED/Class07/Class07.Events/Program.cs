@@ -18,3 +18,8 @@ market.SunscribeForPromotion(user1.ReadPromotion, user1.Email);
 market.SunscribeForPromotion(user2.ReadPromotion, user2.Email);
 
 market.SendPromotion();
+
+market.SunscribeForPromotion(user3.ReadPromotion, user3.Email);
+market.SendPromotion();
+
+market.UnsubscribeFromPromotion( user1.ReadPromotion, user1.Email, "I dont like your promotions");
