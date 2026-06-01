@@ -78,6 +78,25 @@ List<Car> moreThan200Hp = CarsData.Cars
         return new Car { Model = c.Model, HorsePower = c.HorsePower }; //just Model and HorsePower 
     })
     .ToList();
+// wrong^ we need t ocreate a new class for the objects
+// CarInfo at end of file
+List<CarInfo> moreThan200Hp2 = CarsData.Cars
+    .Where(c => c.HorsePower > 200)
+    .Select(c =>
+    {
+        return new CarInfo { Model = c.Model, HorsePower = c.HorsePower };
+    })
+    .ToList();
+//even better with record type
+//records are immutable, so we can only set values through constructor, no need for property setters
+List<CarInfoRecord> moreThan200Hp3 = CarsData.Cars
+    .Where(c => c.HorsePower > 200)
+    .Select(c =>
+    {
+        return new CarInfoRecord(c.Model, c.HorsePower);
+    })
+    .ToList();
+
 
 
 
@@ -158,3 +177,12 @@ List<string> custom17 = CarsData.Cars
     .OrderBy(model => model) //string
     .Skip(5)
     .ToList();
+
+
+internal class CarInfo
+{
+    public string Model { get; set; }
+    public double HorsePower { get; set; }
+}
+
+internal record CarInfoRecord(string Model, double HorsePower);
