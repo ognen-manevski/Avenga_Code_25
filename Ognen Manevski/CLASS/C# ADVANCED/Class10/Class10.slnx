@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Class10.Disposable/Class10.Disposable.csproj" />
+  <Project Path="Class10.MemoryAllocation/Class10.MemoryAllocation.csproj" />
+  <Project Path="Class10.Nullables/Class10.Nullables.csproj" />
+</Solution>
