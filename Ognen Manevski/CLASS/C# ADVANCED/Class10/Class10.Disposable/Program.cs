@@ -1,4 +1,6 @@
-﻿Console.WriteLine("=============== Disposing ===============");
+﻿using Class10.Disposable;
+
+Console.WriteLine("=============== Disposing ===============");
 
 string FolderPath = @"..\..\..\TextFolder";
 string FilePath = Path.Combine(FolderPath, "text.txt");
@@ -114,3 +116,48 @@ void ManualDisposeExampleWithUsing()
 }
 
 ManualDisposeExampleWithUsing();
+
+Console.WriteLine("============ Disposing with our own \"disposable\" class ===================");
+
+
+static void AppendTextInFileCustomDisposing(string text, string path)
+{
+    //OurWriter writer = new OurWriter(path);
+    //OurWriter.Write(text);
+    //OurWriter.Dispose();
+
+    using (OurWriter writer = new OurWriter(path))
+    {
+        writer.Write(text);
+    }
+}
+
+void ReadTExtFromFileOurCustomDisposing(string path)
+{
+    using (OurReader reader = new OurReader(path))
+    {
+        Console.WriteLine(reader.Read());
+    }
+}
+
+
+
+void OurDisposableExample()
+{
+    Console.WriteLine("Enter text part 1: ");
+    string text1 = Console.ReadLine();
+    AppendTextInFileCustomDisposing(text1, FilePath);
+    Console.WriteLine("Enter text part 2: ");
+    string text2 = Console.ReadLine();
+    AppendTextInFileCustomDisposing(text2, FilePath);
+    Console.WriteLine("Enter text part 3: ");
+    string text3 = Console.ReadLine();
+    AppendTextInFileCustomDisposing(text3, FilePath);
+    Console.ReadLine();
+    Console.WriteLine("---------------- Read -----------------");
+    ReadTExtFromFileOurCustomDisposing(FilePath);
+    //clean the file
+    File.WriteAllText(FilePath, string.Empty);
+}
+
+OurDisposableExample();
