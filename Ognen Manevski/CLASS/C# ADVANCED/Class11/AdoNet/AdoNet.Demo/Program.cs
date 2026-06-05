@@ -9,7 +9,7 @@ void PrintStudents(List<Student> students)
     }
 }
 
-const string ConnectionString = "Server=.\\SQLEXPRESS;Database=SEDC_DEMO_SHARP;User Id=Code;Password=Password5%;Encrypt=False;TrustServerCertificate=True;";
+const string ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=SEDC_DEMO_SHARP;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
 
 StudentRepository studentRepository = new StudentRepository(ConnectionString);
 

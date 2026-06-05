@@ -40,7 +40,7 @@ internal class StudentRepository
 	                s.Gender,
 	                S.NationalIdNumber,
 	                S.StudentCardNumber
-                FROM dbo.Student s
+                FROM [dbo].[Student] s
                 ";
 
             // 3) Create slq command
@@ -64,9 +64,7 @@ internal class StudentRepository
                         DateOfBirth = reader.IsDBNull(3) ? (DateTime?)null : reader.GetDateTime(3),
                         EnrolledDate = reader.IsDBNull(4) ? (DateTime?)null : reader.GetDateTime(4),
                         Gender = reader.IsDBNull(5) ? (char?)null : reader.GetString(5)[0],
-                        NationalIdNumber = reader.IsDBNull(6) ? null : reader.GetString(6)[0], // This is a simplification, as NationalIdNumber is defined as long?
-                                                                                               // in the Student class, but we are reading it as a string from the database.
-                                                                                               
+                        NationalIdNumber = reader.IsDBNull(6) ? (long?)null : reader.GetInt64(6),
                         StudentCardNumber = reader.IsDBNull(7) ? null : reader.GetString(7)
                     };
                     students.Add(student);
