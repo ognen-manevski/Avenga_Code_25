@@ -25,6 +25,8 @@ internal class StudentRepository
 
         //1) establish connection to the database
 
+
+
         using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
         {
             sqlConnection.Open();
@@ -70,9 +72,94 @@ internal class StudentRepository
                     students.Add(student);
                 }
             }
-
         }
         //7) Return the list of students
         return students;
     }
+
+    //not safe for production code, just for demonstration purposes
+    public void InsertStudentSqlInjection(Student student)
+    {
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $@"
+					INSERT INTO [dbo].[Student] 
+					(
+						FirstName,
+						LastName,
+						DateOfBirth,
+						EnrolledDate,
+						Gender,
+						NationalIdNumber,
+						StudentCardNumber
+					)
+					VALUES
+					(
+						'{student.FirstName}',
+						'{student.LastName}',
+						'{student.DateOfBirth:yyyy-MM-dd}',
+						'{student.EnrolledDate:yyyy-MM-dd}',
+						'{student.Gender}',
+						{student.NationalIdNumber}, 
+						'{student.StudentCardNumber}'
+					)";
+            // {student.NationalIdNumber}, -> numeric values should not be wrapped in single quotes
+
+            using SqlCommand command = connection.CreateCommand();
+            command.CommandText = query;
+
+            //int rowsAffected = command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
+        }
+    }
+
+    //Safe Variant:
+    public void InsertStudentSafe(Student student)
+    {
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $@"
+					INSERT INTO [dbo].[Student] 
+					(
+						FirstName,
+						LastName,
+						DateOfBirth,
+						EnrolledDate,
+						Gender,
+						NationalIdNumber,
+						StudentCardNumber
+					)
+					VALUES
+					(
+						@FirstName,
+						@LastName,
+						@DateOfBirth,
+						@EnrolledDate,
+						@Gender,
+						@NationalIdNumber, 
+						@StudentCardNumber
+					)";
+
+            using SqlCommand command = connection.CreateCommand();
+            command.CommandText = query;
+
+            // variables in the query (@) are replaced with parameters, which are added to the command object
+            command.Parameters.AddWithValue("@FirstName", student.FirstName ?? null);
+            command.Parameters.AddWithValue("@LastName", student.LastName);
+            command.Parameters.AddWithValue("@DateOfBirth", student.DateOfBirth);
+            command.Parameters.AddWithValue("@EnrolledDate", student.EnrolledDate);
+            command.Parameters.AddWithValue("@Gender", student.Gender);
+            command.Parameters.AddWithValue("@NationalIdNumber", student.NationalIdNumber);
+            command.Parameters.AddWithValue("@StudentCardNumber", student.StudentCardNumber);
+
+            command.ExecuteNonQuery();
+        }
+    }
+
+
 }
+

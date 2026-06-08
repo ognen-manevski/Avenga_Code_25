@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Class12.AsyncAwait/Class12.AsyncAwait.csproj" />
+  <Project Path="Class12.Tasks/Class12.Tasks.csproj" />
+  <Project Path="Class12.Threads/Class12.Threads.csproj" />
+</Solution>
