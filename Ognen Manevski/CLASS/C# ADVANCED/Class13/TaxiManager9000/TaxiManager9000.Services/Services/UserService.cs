@@ -1,4 +1,6 @@
-﻿using TaxiManager9000.Domain.Models;
+﻿using TaxiManager9000.Domain.Enums;
+using TaxiManager9000.Domain.Models;
+using TaxiManager9000.Helpers;
 using TaxiManager9000.Services.Interfaces;
 
 namespace TaxiManager9000.Services.Services
@@ -11,13 +13,46 @@ namespace TaxiManager9000.Services.Services
 
         public void LogIn(string username, string password)
         {
-            User userDb = GetAll().SingleOrDefault(x=> x.Username.Equals(username, StringComparison.InvariantCultureIgnoreCase) && x.Password == password);
+            User userDb = GetAll().SingleOrDefault(x => x.Username.Equals(username, StringComparison.InvariantCultureIgnoreCase) && x.Password == password);
             if (userDb is null)
             {
                 throw new Exception("Login failed! Try again........");
             }
 
             CurrentUser = userDb;
+        }
+
+
+        public void CreateNewUser(string username, string password, Role role)
+        {
+            bool userExists = GetAll().Any(x => x.Username.Equals(username, StringComparison.InvariantCultureIgnoreCase));
+
+            if (userExists)
+            {
+                throw new Exception("User already exists! Try again........");
+            }
+
+            User newUser = new User(username, password, role);
+
+            Insert(newUser);
+
+        }
+
+        public bool ChangePassword(string oldPassword, string newPassword)
+        {
+            if (
+                CurrentUser.Password != oldPassword ||
+                oldPassword == newPassword ||
+                !ValidationHelper.ValidatePassword(newPassword)
+                )
+            {
+                return false;
+            }
+            CurrentUser.Password = newPassword;
+
+            bool isUpdated = Update(CurrentUser);
+
+            return isUpdated;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using TaxiManager9000.Domain.Enums;
 using TaxiManager9000.Domain.Models;
 using TaxiManager9000.Helpers;
+using TaxiManager9000.Services.Enums;
 using TaxiManager9000.Services.Interfaces;
 using TaxiManager9000.Services.Services;
 
@@ -19,7 +20,7 @@ namespace TaxiManager9000.App
             _userService = new UserService();
             _carService = new CarService();
             _driverService = new DriverService();
-           
+
             SeedData();
         }
 
@@ -30,7 +31,7 @@ namespace TaxiManager9000.App
                 Console.Clear();
                 #region Login Menu
 
-                if(_userService.CurrentUser is null)
+                if (_userService.CurrentUser is null)
                 {
                     try
                     {
@@ -55,9 +56,127 @@ namespace TaxiManager9000.App
                         continue;
                     }
                 }
+
+                #endregion
+
+
+
+                #region Main Menu
+
+                int menuChoiceNumber = _uiService.MainMenu(_userService.CurrentUser.Role);
+
+                if (menuChoiceNumber == -1)
+                {
+                    ConsoleHelper.PrintError("Invalid choice! Try again.");
+                    return;
+                }
+
+                MenuChoice mainMenuChoice = _uiService.MenuItems[menuChoiceNumber - 1];
+
+                switch (mainMenuChoice)
+                {
+                    case MenuChoice.AddNewUser:
+                        ConsoleHelper.PrintInColor("Adding a new user...", ConsoleColor.Cyan);
+
+                        string username = ConsoleHelper.GetInput("Enter new username: ");
+                        if (!ValidationHelper.ValidateUsername(username))
+                        {
+                            ConsoleHelper.PrintError("Invalid username! It must be at least 5 characters long and contain only letters and numbers.");
+                        }
+
+                        string password = ConsoleHelper.GetInput("Enter new password: ");
+                        if (!ValidationHelper.ValidatePassword(password))
+                        {
+                            ConsoleHelper.PrintError("Invalid password! It must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.");
+                        }
+
+                        int role = _uiService.ChooseMenu(new List<string>()
+                        {
+                            "Administrator",
+                            "Manager",
+                            "Maintenance"
+                        });
+
+                        try
+                        {
+                            _userService.CreateNewUser(username, password, (Role)role);
+
+                            ConsoleHelper.PrintSuccess($"User '{username}' created successfully with role '{(Role)role}'!");
+                        }
+                        catch (Exception ex)
+                        {
+                            ConsoleHelper.PrintError(ex.Message);
+                        }
+
+
+                        break;
+                    case MenuChoice.RemoveExistingUser:
+                        ConsoleHelper.PrintInColor(" ========= Remove an existing user...", ConsoleColor.DarkRed);
+
+                        List<User> users = _userService.GetAll().Where(x=>x.Id != _userService.CurrentUser.Id).ToList();
+
+                        int menuChoice = _uiService.ChooseEntitiesMenu(users);
+
+                        if (menuChoice == -1) continue;
+
+                        _userService.Remove(users[menuChoice - 1].Id);
+
+                        break;
+
+                    case MenuChoice.ListAllDrivers:
+                        ConsoleHelper.PrintInColor("Listing all drivers...", ConsoleColor.Cyan);
+                        break;
+                    case MenuChoice.ListAllCars:
+                        ConsoleHelper.PrintInColor("Listing all cars...", ConsoleColor.Cyan);
+                        break;
+                    case MenuChoice.LicencePlateStatus:
+                        ConsoleHelper.PrintInColor("Checking license plate status...", ConsoleColor.Cyan);
+                        break;
+                    case MenuChoice.DriverManager:
+                        ConsoleHelper.PrintInColor("Accessing driver manager...", ConsoleColor.Cyan);
+                        break;
+                    case MenuChoice.ChangePassword:
+                        ConsoleHelper.PrintInColor("Changing password...", ConsoleColor.Cyan);
+
+                        string oldPassword = ConsoleHelper.GetInput("Enter your current password: ");
+                        string newPassword = ConsoleHelper.GetInput("Enter your new password: ");
+
+                        if (
+                            !ValidationHelper.ValidateStringInput(newPassword) ||
+                            !ValidationHelper.ValidateStringInput(oldPassword)
+                            )
+                        {
+                            ConsoleHelper.PrintError("Please enter valid values!");
+                        }
+
+                        bool changeSuccess = _userService.ChangePassword(oldPassword, newPassword);
+
+                        if (changeSuccess)
+                        {
+                            ConsoleHelper.PrintSuccess("Password changed successfully!");
+                        }
+                        else
+                        {
+                            ConsoleHelper.PrintError("Failed to change password. Please check your current password and try again.");
+                        }
+                        break;
+
+                    case MenuChoice.TaxiLicenseStatus:
+                        ConsoleHelper.PrintInColor("Checking taxi license status...", ConsoleColor.Cyan);
+                        break;
+                    case MenuChoice.Exit:
+                        ConsoleHelper.PrintInColor("Exiting the application. Goodbye!", ConsoleColor.Yellow);
+                        _userService.CurrentUser = null; // Log out the current user
+                        continue;
+                    default:
+                        ConsoleHelper.PrintError("Invalid choice! Try again.");
+                        break;
+                }
+
+                #endregion
+
             }
 
-            #endregion
         }
         private void SeedData()
         {

@@ -22,7 +22,6 @@ public class Car : BaseEntity
         
     }
 
-
     public override string GetInfo()
     {
         return $"Car model {Model}";
