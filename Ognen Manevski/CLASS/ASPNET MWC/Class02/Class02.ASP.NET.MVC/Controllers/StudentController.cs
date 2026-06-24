@@ -53,4 +53,17 @@ public class StudentController : Controller
         return Json(_students.FirstOrDefault(s => s.Id == id));
     }
 
+
+    //we can also return a student object directly for other purposes
+    public Student GetStudentByIdAndName(int id, string name)
+    {
+        return _students.FirstOrDefault(s => s.Id == id && s.FirstName == name);
+    }
+
+    [Route("byId/{id?}")]
+    public Student GetStudentByIdWithDefaultValue (int id = 1)
+    {
+        return _students.FirstOrDefault(s => s.Id == id);
+    }
+
 }
