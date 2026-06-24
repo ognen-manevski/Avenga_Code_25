@@ -1,0 +1,76 @@
+[
+  {
+    "UserId": 1,
+    "ActivityType": 1,
+    "DurationInSeconds": 5400,
+    "ExtraInfo": {
+      "Pages": "85",
+      "Type": "Fiction"
+    },
+    "Id": 1
+  },
+  {
+    "UserId": 1,
+    "ActivityType": 1,
+    "DurationInSeconds": 2700,
+    "ExtraInfo": {
+      "Pages": "42",
+      "Type": "ProfessionalLiterature"
+    },
+    "Id": 2
+  },
+  {
+    "UserId": 1,
+    "ActivityType": 2,
+    "DurationInSeconds": 3600,
+    "ExtraInfo": {
+      "Type": "Running"
+    },
+    "Id": 3
+  },
+  {
+    "UserId": 1,
+    "ActivityType": 2,
+    "DurationInSeconds": 2400,
+    "ExtraInfo": {
+      "Type": "Sport"
+    },
+    "Id": 4
+  },
+  {
+    "UserId": 1,
+    "ActivityType": 3,
+    "DurationInSeconds": 14400,
+    "ExtraInfo": {
+      "Location": "Office"
+    },
+    "Id": 5
+  },
+  {
+    "UserId": 1,
+    "ActivityType": 3,
+    "DurationInSeconds": 10800,
+    "ExtraInfo": {
+      "Location": "Home"
+    },
+    "Id": 6
+  },
+  {
+    "UserId": 1,
+    "ActivityType": 4,
+    "DurationInSeconds": 4500,
+    "ExtraInfo": {
+      "HobbyName": "Guitar"
+    },
+    "Id": 7
+  },
+  {
+    "UserId": 1,
+    "ActivityType": 4,
+    "DurationInSeconds": 3000,
+    "ExtraInfo": {
+      "HobbyName": "Chess"
+    },
+    "Id": 8
+  }
+]

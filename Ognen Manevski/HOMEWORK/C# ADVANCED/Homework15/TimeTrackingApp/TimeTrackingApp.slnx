@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Requirements/">
+    <File Path="Requirements.md" />
+  </Folder>
+  <Project Path="TimeTrackingApp.App/TimeTrackingApp.App.csproj" />
+  <Project Path="TimeTrackingApp.DataAccess/TimeTrackingApp.DataAccess.csproj" />
+  <Project Path="TimeTrackingApp.Domain/TimeTrackingApp.Domain.csproj" />
+  <Project Path="TimeTrackingApp.Helpers/TimeTrackingApp.Helpers.csproj" />
+  <Project Path="TimeTrackingApp.Services/TimeTrackingApp.Services.csproj" />
+</Solution>
