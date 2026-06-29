@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Class04.Views.Models.Dto.StudentWithCourseDto>
+
+<h1>All Students</h1>
+
+<p>
+    <a class="btn btn-primary">Create New Student</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Name of Course</th>
+            <th>Student Details</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            //Model is passed as arg from the controller to the view
+            //return View(students); <-- students is saved as Model in the view
+            foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.FullName</td>
+                    <td>@student.Age</td>
+                    <td>@student.CourseName</td>
+                    <td>@Html.ActionLink("Details", "GetStudentById", new { id = student.Id }, new { @class = "btn btn-outline-primary" })</td>
+                </tr>
+            }
+        }
+    </tbody>
+
+
+</table>
+
+

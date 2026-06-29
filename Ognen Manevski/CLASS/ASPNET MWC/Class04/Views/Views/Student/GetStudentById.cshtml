@@ -1,0 +1,26 @@
+﻿@model Class04.Views.Models.Dto.StudentWithCourseDto
+
+<h2>Student Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Full Name</dt>
+        <dd>@Model.FullName</dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">Age</dt>
+        <dd>@Model.Age</dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">Course Name</dt>
+        <dd>@Model.CourseName</dd>
+    </dl>
+
+</div>
+
+<div>
+    <a class="btn btn-primary"
+        href="@Url.Action("GetAllStudents", "Student")">Back to List</a>
+</div>
