@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Class04.Views.Database;
 using Class04.Views.Models.Dto;
+using Class04.Views.Models.ViewModels;
+using Class04.Views.Models.Domain;
 
 namespace Class04.Views.Controllers;
 
@@ -31,6 +33,35 @@ public class StudentController : Controller
         return View(studentDto);
 
     }
+
+    [HttpGet("create")] //GET: students/create
+    public IActionResult CreateStudent()
+    {
+        return View(); //empty
+    }
+
+    [HttpPost("create")] //must be the same route as the GET method ^
+    public IActionResult CreateStudent(CreateStudentVM model) //AND have the SAME NAME as the GET method ^
+    {
+        //map VIEW model to DOMAIN model
+        var entity = new Student
+        {
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            DateOfBirth = model.DateOfBirth,
+            Id = InMemoryDatabase.Students.Count + 1, //auto increment
+            ActiveCourse = InMemoryDatabase.Courses[1]
+        };
+
+        // Add the new student to the in-memory database
+        InMemoryDatabase.Students.Add(entity);
+
+
+        //redirect back to view all students page
+        //return View(); <- NO
+        return RedirectToAction("GetAllStudents");
+    }
+
 
 
 

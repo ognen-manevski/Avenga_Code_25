@@ -1,4 +1,7 @@
-﻿@{
+﻿@model Class04.Views.Models.Dto.CourseWithStudentsDto;
+@*just for the textbox name example*@
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +9,70 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+@* html helpers /////////////////////////////////  *@
+
+<h2>HTML HELPERS</h2>
+<hr />
+
+<h3>Text Box: Generates an input element of type "text"</h3>
+@* <input name="<the name property of the MODEL will go here>" class="form-control" placeholder="Enter your name" /> *@
+@Html.TextBox(nameof(Model.Name), null, new { @class = "form-control", placeholder = "Enter your name" })
+@* name, action, css classes /html attributes ^ *@
+
+<h3>TextArea: Generates a textarea element</h3>
+@* <textarea name="Description" class="form-control" placeholder="Enter your description" rows="3"></textarea> *@
+@Html.TextArea("Description", null, new { @class = "form-control", placeholder = "Enter your description", rows = 3 })
+
+<h3>Dropdown</h3>
+@Html.DropDownList(nameof(Model.Students), new SelectList(new[] { "Danilo", "Damjan", "Klementina" }), "Select Student", new { @class = "form-control" })
+
+<h3>Checkbox</h3>
+@Html.CheckBox("Subscribe", new { @class = "form-check-input" })
+
+<h3>Radio Button</h3>
+@Html.RadioButton("Role", "Admin", new { @class = "form-check-input" })
+@Html.RadioButton("Role", "User", new { @class = "form-check-input" })
+
+<h3>Action Link</h3>
+@Html.ActionLink("Click here", "Index", "Courses", null, new { @class = "btn btn-primary" })
+@* name, action, controller, route values, html attributes *@
+
+<h4>Password</h4>
+@Html.Password("Password", null, new { @class = "form-control", placeholder = "Enter your password" })
+
+
+@* Tag helpers //////////////////////////// *@
+
+<h2>Tag Helpers</h2>
+
+<hr />
+
+<h3>Text Box</h3>
+<input asp-for="Name" class="form-control" placeholder="Enter Text" />
+@* asp-for - binds the input element to the specified model property *@
+
+<h3>Text Area</h3>
+<textarea asp-for="Description" class="form-control" placeholder="Enter your description" rows="3"></textarea>
+
+<h3>Dropdown</h3>
+<select asp-for="Students" asp-items='new SelectList(new[] { " Danilo", "Damjan", "Klementina" })' class="form-control">
+    <option value="">Select Student</option>
+</select>
+
+<h3>Checkbox</h3>
+
+<input asp-for="Subscribe" class="form-check-input" />
+
+<h3>Radio Button</h3>
+
+<input type="radio" asp-for="Role" value="Admin" class="form-check-input" />
+<input type="radio" asp-for="Role" value="User" class="form-check-input" />
+
+<h3>Action Link</h3>
+
+<a asp-action="Index" asp-controller="Courses" class="btn btn-primary">Click here to go back to Courses</a>
+
+<h3>Password</h3>
+<input type="password" class="form-control" placeholder="Enter your password" />

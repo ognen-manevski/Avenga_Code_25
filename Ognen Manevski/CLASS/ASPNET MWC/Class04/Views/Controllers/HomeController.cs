@@ -15,6 +15,7 @@ namespace Class04.Views.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Message"] = "Hello from the HomeController View Data";
             return View();
         }
 
