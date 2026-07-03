@@ -1,0 +1,4 @@
+Repositories instead of Services for data access
+for a more structured and maintainable approach to managing data.
+Repositories act as an abstraction layer between the application and the data source,
+allowing for better separation of concerns and easier testing.

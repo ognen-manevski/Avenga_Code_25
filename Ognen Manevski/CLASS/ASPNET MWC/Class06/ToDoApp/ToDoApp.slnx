@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/BusinessLayer/">
+    <Project Path="ToDoApp.Mappers/ToDoApp.Mapper.csproj" />
+    <Project Path="ToDoApp.Models/ToDoApp.Models.csproj" />
+    <Project Path="ToDoApp.Services/ToDoApp.Services.csproj" />
+  </Folder>
+  <Folder Name="/DataAccessLayer/">
+    <Project Path="ToDoApp.DataAccess/ToDoApp.DataAccess.csproj" />
+    <Project Path="ToDoApp.Domain/ToDoApp.Domain.csproj" />
+  </Folder>
+  <Project Path="ToDoApp/ToDoApp.csproj" />
+</Solution>
