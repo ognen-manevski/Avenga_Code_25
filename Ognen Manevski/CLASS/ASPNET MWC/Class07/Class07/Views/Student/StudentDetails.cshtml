@@ -1,0 +1,15 @@
+﻿@model Class07.Models.ViewModels.StudentDetailsVM;
+
+<h2>
+    Student Details
+</h2>
+
+
+<h5 class="card-title">@Model.FullName</h5>
+<h6 class="card-subtitle mb-2 text-muted">Age: @Model.Age</h6>
+<p class="card-text">Email: @Model.Email</p>
+<p class="card-text">Phone Number: @Model.PhoneNumber</p>
+<a href="@Url.Action("Index", "Students")" class="btn btn-primary">Back to List</a>
+
+
+

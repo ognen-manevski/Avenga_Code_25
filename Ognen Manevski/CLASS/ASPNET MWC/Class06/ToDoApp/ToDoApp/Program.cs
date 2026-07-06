@@ -21,7 +21,8 @@ builder.Services.AddScoped<IRepository<ToDo>, ToDoRepository>();
 builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
 builder.Services.AddScoped<IRepository<Status>, StatusRepository>();
 
-//AddTransient
+//AddTransient <==  creates a new instance every time it is requested
+//AddScoped <==  creates only 1 instance per request (more efficient)
 //=================================
 
 var app = builder.Build();
