@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implementation\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ToDoApp.DataAccess\ToDoApp.DataAccess.csproj" />
+    <ProjectReference Include="..\ToDoApp.Mappers\ToDoApp.Mapper.csproj" />
+    <ProjectReference Include="..\ToDoApp.Models\ToDoApp.Models.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,46 @@
+﻿@using ToDoApp.Models.ViewModels
+
+@model List<ToDosVM>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-stripped table-bordered">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var todo in Model)
+                {
+                    <tr>
+                        <td>@todo.Description</td>
+                        <td>@todo.DueDate.ToShortDateString()</td>
+                        <td>@todo.CategoryName</td>
+                        <td>@todo.StatusName</td>
+                        <td>
+                            @if (todo.StatusName == "Completed")
+                            {
+                                <button class="btn btn-sm btn-success" type="submit" disabled>Completed</button>
+                            }
+                            else
+                            {
+                                <a asp-action="MarkComplete" class="btn btn-sm btn-success" asp-route-id="@todo.Id">Mark Complete</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div>
+            <a asp-action="Create" class="btn btn-outline-primary">Add New Todo</a>
+            <a asp-action="RemoveCompleted" class="btn btn-outline-danger">Remove Completed</a>
+        </div>
+
+    </div>
+</div>

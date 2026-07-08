@@ -3,7 +3,7 @@ using ToDoApp.Domain;
 
 namespace ToDoApp.DataAccess.Implementations;
 
-public class ToDoRepository : IRepository<ToDo>
+public class ToDoRepository : IRepository<ToDo>, IToDoRepository
 {
     public void Create(ToDo entity)
     {

@@ -1,33 +1,38 @@
 ﻿@model List<Class07.Models.ViewModels.StudentVM>
 
-    <h2>Students</h2>
-    <a class=" btn btn-outline-primary" asp-action="Create">Create</a>
+<h2>Students</h2>
+<a class=" btn btn-outline-primary" asp-action="Create">Create</a>
 
-    <table class="table">
+<table class="table">
 
-        <thead>
+    <thead>
         <tr>
-            <th>@Html.DisplayNameFor(Model=>Model[0].FullName)</th>
-            <th>@Html.DisplayNameFor(Model=>Model[0].Age)</th>
-            <th>@Html.DisplayNameFor(Model=>Model[0].Email)</th>
+            <th>@Html.DisplayNameFor(Model => Model[0].FullName)</th>
+            <th>@Html.DisplayNameFor(Model => Model[0].Age)</th>
+            <th>@Html.DisplayNameFor(Model => Model[0].Email)</th>
             <th>Details</th>
         </tr>
-        </thead>
+    </thead>
 
-        <tbody>
-            @foreach(var student in Model)
-            {
-                <tr>
-                    <td>@student.FullName</td>
-                    <td>@student.Age</td>
-                    <td>@student.Email</td>
-                    <td>
-                        <a class="btn btn-outline-primary" asp-action="GetStudentById" asp-route-id="@student.Id">Details</a>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.Age</td>
+                <td>@student.Email</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-action="GetStudentById" asp-route-id="@student.Id">Details by Route</a>
                     <a class="btn btn-outline-secondary" asp-action="GetStudentByIdWithQuery" asp-route-id="@student.Id">Details by Query</a>
-                    <a class="btn btn-outline-info" asp-action="GetStudentFilter" asp-route-fullName="@student.FullName" asp-route-age="@student.Age">Details by Filter</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
+                    <a class="btn btn-outline-info"
+                       asp-action="GetStudentFilter"
+                       asp-route-fullName="@student.FullName"
+                       asp-route-age="@student.Age">
+                        Details by Filter
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 
-    </table>
+</table>
