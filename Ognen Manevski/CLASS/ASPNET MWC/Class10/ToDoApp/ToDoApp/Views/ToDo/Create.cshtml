@@ -1,0 +1,33 @@
+﻿@model CreateToDoVm
+
+
+<form asp-controller="ToDo" asp-action="CreateToDo" method="post">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="mb-3">
+                <label name="Categories" class="form-label">Category</label>
+                <select name="CategoryId" class="form-select"
+                        asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name", ViewBag.Filter?.CategoryId))">
+                    <option value="0">SelectCategory</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label name="Statuses" class="form-label">Status</label>
+                <select name="StatusId" class="form-select"
+                        asp-items="@(new SelectList(ViewBag.Statuses, "Id", "Name", ViewBag.Filter?.StatusId))">
+                    <option value="0">SelectStatus</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-outline-primary">Filter</button>
+            <a asp-action="GetAllToDos" class="btn btn-otline-secondary">Clear</a>
+        </div>
+
+    </div>
+
+</form>
