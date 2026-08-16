@@ -1,0 +1,6 @@
+@Homework03.BooksApi_HostAddress = http://localhost:5239
+
+GET {{Homework03.BooksApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
