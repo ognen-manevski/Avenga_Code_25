@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Class04.DataAccess/Class04.DataAccess.csproj" Id="8685fc90-1ecc-4c96-b0e9-5e3619a09ac7" />
+  <Project Path="Class04.Domain/Class04.Domain.csproj" />
+  <Project Path="Class04.NotesApp/Class04.NotesApp.csproj" />
+  <Project Path="Class04.Services/Class04.Services.csproj" Id="27bf1b98-c84b-4d2d-855d-4d91665fd24c" />
+</Solution>
