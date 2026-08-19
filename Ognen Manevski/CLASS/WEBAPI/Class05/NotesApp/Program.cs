@@ -1,7 +1,7 @@
-using Class04.Services.Interfaces;
-using Class04.Services.Implementations;
-using Class04.DataAccess.Interfaces;
-using Class04.DataAccess.Implementations;
+using NotesApp.DataAccess.Implementations;
+using NotesApp.DataAccess.Interfaces;
+using NotesApp.Services.Implementations;
+using NotesApp.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//register services
+// Register services
 builder.Services.AddScoped<INoteService, NoteService>();
 
-//register repositories
+// Register repositories
 builder.Services.AddScoped<INoteRepository, NoteRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();

@@ -1,13 +1,9 @@
-﻿using Class04.DataAccess.Interfaces;
-using Class04.Domain.Enums;
-using Class04.Domain.Models;
-using Class04.Dtos;
-using Class04.Services.Interfaces;
-using NotesApp.DataAccess.Interfaces;
+﻿using NotesApp.DataAccess.Interfaces;
 using NotesApp.Domain.Enums;
 using NotesApp.Domain.Models;
 using NotesApp.Dtos;
 using NotesApp.Mappers;
+using NotesApp.Services.CustomExceptions;
 using NotesApp.Services.Interfaces;
 
 namespace NotesApp.Services.Implementations;
@@ -15,11 +11,16 @@ namespace NotesApp.Services.Implementations;
 public class NoteService : INoteService
 {
     private readonly INoteRepository _noteRepository;
+    private readonly IUserRepository _userRepository;
+    private readonly ITagRepository _tagRepository;
 
     public NoteService(INoteRepository noteRepository)
     {
         _noteRepository = noteRepository;
     }
+
+
+
 
     public List<NoteDto> GetAllNotes(Priority? priority = null)
     {
@@ -56,4 +57,63 @@ public class NoteService : INoteService
 
         return noteDtos;
     }
+
+    public NoteDto GetNoteById(int id)
+    {
+        Note? noteDb = _noteRepository.GetById(id);
+        if (noteDb == null)
+        {
+            throw new NoteNotFoundException($"Note with ID {id} was not found.");
+        }
+        return noteDb.ToNoteDto();
+    }
+
+    public NoteDto AddNote(AddNoteDto addNoteDto)
+    {
+        //validate
+        ValidateText(addNoteDto.Text);
+
+        User user = _userRepository.GetById(addNoteDto.UserId);
+
+        if (user is null)
+        {
+            throw new UserNotFoundException($"User with ID {addNoteDto.UserId} was not found.");
+        }
+
+        List<Tag> tags = new List<Tag>();
+        foreach (int tagId in addNoteDto.TagIds)
+        {
+            Tag tag = _tagRepository.GetById(tagId);
+            if (tag is null)
+            {
+                throw new TagNotFoundException($"Tag with ID {tagId} was not found.");
+            }
+            tags.Add(tag);
+        }
+
+    }
+
+
+    #region Private Helper Methods
+    
+    private void ValidateText (string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            throw new NoteDataException("Text is a required field.");
+        }
+        if (text.Length > 100)
+        {
+            throw new NoteDataException("Text cannot exceed 100 characters.");
+        }
+
+
+    }
+
+    
+
+    #endregion
+
+
+
 }
