@@ -1,0 +1,6 @@
+@Class06.DatabaseFirstDemo_HostAddress = http://localhost:5018
+
+GET {{Class06.DatabaseFirstDemo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
