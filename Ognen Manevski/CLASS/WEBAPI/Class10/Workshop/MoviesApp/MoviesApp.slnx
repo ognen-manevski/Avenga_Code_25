@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="MoviesApp.DataAccess/MoviesApp.DataAccess.csproj" />
+  <Project Path="MoviesApp.Domain/MoviesApp.Domain.csproj" />
+  <Project Path="MoviesApp.Dtos/MoviesApp.Dtos.csproj" />
+  <Project Path="MoviesApp.Helpers/MoviesApp.Helpers.csproj" Id="efb7d95e-28b3-4d7a-845a-2780be7c1d2a" />
+  <Project Path="MoviesApp.Mappers/MoviesApp.Mappers.csproj" />
+  <Project Path="MoviesApp.MoviesApi/MoviesApp.MoviesApi.csproj" />
+  <Project Path="MoviesApp.Services/MoviesApp.Services.csproj" />
+</Solution>
