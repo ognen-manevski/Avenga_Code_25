@@ -34,7 +34,7 @@ public class BookRepository : IBookRepository
     {
         return await _context.Books
             .Include(book => book.Author)
-            //.AsNoTracking()
+            .AsNoTracking()
             .FirstOrDefaultAsync(book => book.Id == id);
     }
 
@@ -63,7 +63,9 @@ public class BookRepository : IBookRepository
         // Preserve original creation timestamp
         _context.Entry(entity).Property(book => book.CreatedDate).IsModified = false;
         */
-
+        _context.Update(entity); //reattaching the entity and marking it as modified
+                                 // Preserve original creation timestamp
+                                 //better and shorter way to update the entity and preserve the CreatedDate property
         await _context.SaveChangesAsync();
     }
 
